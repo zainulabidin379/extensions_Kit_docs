@@ -7,11 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 	<link href="assets/images/favicon.png" rel="icon" />
 	<title>Extensions Kit Docs</title>
-	<meta name="description" content="Your ThemeForest item Name and description">
-	<meta name="author" content="harnishdesign.net">
+	<meta name="description" content="An essential and powerful library of dart extensions to remove the boilerplate and speed up the development
+	process.">
+	<meta name="author" content="https://thecreativezee.com">
 
-	<!-- Stylesheet
-============================== -->
+	<!-- Stylesheets ============================== -->
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
 	<!-- Font Awesome Icon -->
@@ -19,12 +19,10 @@
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
 	<!-- Highlight Syntax -->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- Custom Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
-	<!-- Prism JS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 
 
 </head>
@@ -42,12 +40,10 @@
 	</div>
 	<!-- Preloader End -->
 
-	<!-- Document Wrapper   
-=============================== -->
+	<!-- Document Wrapper =============================== -->
 	<div id="main-wrapper">
 
-		<!-- Header
-  ============================ -->
+		<!-- Header ============================ -->
 		<header id="header" class="sticky-top">
 			<!-- Navbar -->
 			<nav class="primary-menu navbar navbar-expand-lg bg-dark navbar-text-light navbar-dropdown-dark border-0">
@@ -77,12 +73,10 @@
 		</header>
 		<!-- Header End -->
 
-		<!-- Content
-  ============================ -->
+		<!-- Content ============================ -->
 		<div id="content" role="main">
 
-			<!-- Sidebar Navigation
-	============================ -->
+			<!-- Sidebar Navigation ============================ -->
 			<div class="idocs-navigation bg-light">
 				<ul class="nav flex-column ">
 					<li class="nav-item"><a class="nav-link active" href="#getting_started">Getting Started</a>
@@ -92,7 +86,8 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#extensions">Ext</a>
 						<ul class="nav flex-column">
-							<li class="nav-item"><a class="nav-link" href="#copy">copy</a></li>
+							<li class="nav-item"><a class="nav-link" href="#pixel_values">Pixel values</a></li>
+							<li class="nav-item"><a class="nav-link" href="#ext_colors">Colors</a></li>
 						</ul>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#string_extensions">String Extensions</a>
@@ -143,17 +138,16 @@
 					</li>
 				</ul>
 			</div>
+			<!-- Sidebar Navigation End -->
 
-			<!-- Docs Content
-	============================ -->
+			<!-- Docs Content ============================ -->
 			<div class="idocs-content">
 				<div class="container">
 
-					<!-- Getting Started
-		============================ -->
+					<!-- Getting Started ============================ -->
 					<section id="getting_started">
-						<h1>Extensions Kit</h1>
-						<h2>Documentation</h2>
+						<h1>Extensions Kit Docs</h1>
+						<h2>About</h2>
 						<p class="lead">An essential and powerful library of dart extensions to remove the boilerplate and speed up the development
 							process.</p>
 						<hr>
@@ -166,8 +160,8 @@
 							</div>
 							<div class="col-sm-6 col-lg-4">
 								<ul class="list-unstyled">
-									<li><strong class="font-weight-700">Created:</strong> 1st January 2024</li>
-									<li><strong>Updated:</strong> 1st January 2024</li>
+									<li><strong class="font-weight-700">Created:</strong> December 29th, 2023</li>
+									<li><strong>Last Updated:</strong> January 1st, 2024</li>
 								</ul>
 							</div>
 						</div>
@@ -180,86 +174,75 @@
 
 					<hr class="divider">
 
-					<!-- Installation
-		============================ -->
+					<!-- Installation ============================ -->
 					<section id="package_installation">
 						<h2>Installation</h2>
-						<p class="lead">Follow the steps below to add extensions_kit to your project:</p>
+						<p class="lead">Follow the steps below to add <b>extensions_kit</b> to your project:</p>
 						<ol>
 							<li>In your project root folder go to <code>pubspec.yaml</code></li>
 							<li>Add <code>extensions_kit</code> and replace <code>[version]</code> with the latest version:</li>
-							<pre><code class="language-dart">dependencies:
+							<pre><code class="language-yaml">dependencies:								
 	extensions_kit: ^[version]</code></pre>
-							<li>You should upload all or specific HTML files as per your need.</li>
-							<li>You are good to go for adding your content now!</li>
+							<li>Click on get packages button or run <code>flutter pub get</code></li>
+							<li>Import</li>
+							<pre><code class="language-dart">import 'package:extensions_kit/extensions_kit.dart';</code></pre>
 						</ol>
 					</section>
 
 					<hr class="divider">
 
-					<!-- HTML Structure
-		============================ -->
-					<section id="idocs_html_structure">
-						<h2>HTML Structure</h2>
-						<p>iDocs follows a simple and easy to customize coding structure. Here is the sample for your reference:<br>
-							The template is based on <a class="ml-1" target="_blank" href="https://getbootstrap.com/"><i
-									class="fas fa-external-link-alt"></i> Bootstrap Framework</a></p>
-						<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
+					<!-- Ext Methods ============================ -->
+					<section id="extensions">
+						<h2>Ext</h2>
+						<p>The Ext mixin extensions includes pixel values for common sizes (dp10 through dp50) and various color constants in both <code>hex</code>
+							and <code>Color</code> format, covering a wide range of shades in categories like gray, slate, red, orange, amber, yellow, and more.
+							Additionally, it provides easy access to the constants within Flutter widgets. This can be particularly useful
+							for maintaining a consistent design language throughout a Flutter application, ensuring standardized sizes and colors.<br>
+							Available extensions are:
+						</p>
+					</section>
+					<!-- Pixel Values ============================ -->
+					<section id="pixel_values">
+						<h3>Pixel Values</h3>
+						<p>You can access constant pixel values from dp10 through dp50:</p>
+						<pre><code class="language-dart">Ext.dp10; // 10 Pixels
+Ext.dp12; // 12 Pixels
+Ext.dp13; // 13 Pixels
+Ext.dp14; // 14 Pixels
+Ext.dp15; // 15 Pixels
+Ext.dp16; // 16 Pixels
+Ext.dp17; // 17 Pixels
+Ext.dp18; // 18 Pixels
+Ext.dp19; // 19 Pixels
+Ext.dp20; // 20 Pixels
+Ext.dp21; // 21 Pixels
+Ext.dp22; // 22 Pixels
+Ext.dp23; // 23 Pixels
+Ext.dp24; // 24 Pixels
+Ext.dp25; // 25 Pixels
+Ext.dp26; // 26 Pixels
+Ext.dp27; // 27 Pixels
+Ext.dp28; // 28 Pixels
+Ext.dp29; // 29 Pixels
+Ext.dp30; // 30 Pixels
+Ext.dp35; // 35 Pixels
+Ext.dp40; // 40 Pixels
+Ext.dp45; // 45 Pixels
+Ext.dp50; // 50 Pixels</code></pre>
 
-&lt;!-- Your Title, Description, Stylesheets
-============================================= --&gt;
+					</section>
 
-&lt;/head&gt;
-
-&lt;body data-spy=&quot;scroll&quot; data-target=&quot;.idocs-navigation&quot; data-offset=&quot;125&quot;&gt;
-
-&lt;!-- Document Wrapper   
-=============================== --&gt;
-&lt;div id=&quot;main-wrapper&quot;&gt; 
-  
-  &lt;!-- Header
-  ============================ --&gt;
-  &lt;header id=&quot;header&quot; class=&quot;sticky-top&quot;&gt;
-   ......
-  &lt;/header&gt;
-  &lt;!-- Header End --&gt; 
-  
-  &lt;!-- Content
-  ============================ --&gt;
-  &lt;div id=&quot;content&quot; role=&quot;main&quot;&gt; 
-    
-    &lt;!-- Sidebar Navigation
-    ============================ --&gt;
-    &lt;div class=&quot;idocs-navigation bg-light&quot;&gt;
-     .....
-    &lt;/div&gt;
-    
-    &lt;!-- Docs Content
-    ============================ --&gt;
-    &lt;div class=&quot;idocs-content&quot;&gt;
-      &lt;div class=&quot;container&quot;&gt;
-        .......
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;!-- Content end --&gt; 
-  
-  &lt;!-- Footer --&gt;
-  &lt;footer id=&quot;footer&quot; class=&quot;section bg-dark footer-text-light&quot;&gt;
-    &lt;div class=&quot;container&quot;&gt; ...... &lt;/div&gt;
-  &lt;/footer&gt;
-  &lt;!-- Footer end --&gt; 
-  
-&lt;/div&gt;
-&lt;!-- Document Wrapper end --&gt; 
-
-&lt;!-- JavaScript --&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-						<p class="alert alert-info">If you need more information, please visit bootstrap site: <a target="_blank"
-								href="https://getbootstrap.com/docs/4.4/layout/grid/">https://getbootstrap.com</a></p>
+					<!-- Colors ============================ -->
+					<section id="ext_colors">
+						<h3>Colors</h3>
+						<p>There is a range of colors that you can access in <code>hex</code> or <code>Color</code> format.</p>
+						<pre><code class="language-dart">Text(
+'Hello, World!',
+style: TextStyle(
+	color: rose700, // rose700 color
+	fontSize: 24.0,
+	),
+)</code></pre>
 					</section>
 
 					<hr class="divider">
@@ -1523,6 +1506,7 @@
 
 				</div>
 			</div>
+			<!-- Docs Content End -->
 
 		</div>
 		<!-- Content end -->
@@ -1544,7 +1528,7 @@
 				<p class="text-center">Copyright &copy; 2020 <a
 						href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
 				<p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank"
-						href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+						href="http://www.harnishdesign.net/">Zain Ul Abidin</a>.</p>
 			</div>
 		</footer>
 		<!-- Footer end -->
@@ -1560,19 +1544,16 @@
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- Highlight JS -->
-	<script src="assets/vendor/highlight.js/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+	<script>hljs.highlightAll();</script>
 	<!-- Easing -->
 	<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
 	<!-- Magnific Popup -->
 	<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 	<!-- Custom Script -->
 	<script src="assets/js/theme.js"></script>
-	<!-- Initialize Prism after page load -->
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			Prism.highlightAll();
-		});
-	</script>
+
 </body>
 
 </html>

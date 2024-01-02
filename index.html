@@ -88,6 +88,11 @@
 						<ul class="nav flex-column">
 							<li class="nav-item"><a class="nav-link" href="#pixel_values">Pixel values</a></li>
 							<li class="nav-item"><a class="nav-link" href="#ext_colors">Colors</a></li>
+							<li class="nav-item"><a class="nav-link" href="#hexToColor">Hex to Color</a></li>
+							<li class="nav-item"><a class="nav-link" href="#get_materialColor">Get MaterialColor</a></li>
+							<li class="nav-item"><a class="nav-link" href="#random_color">Random Color</a></li>
+							<li class="nav-item"><a class="nav-link" href="#copy_to_clipboard">Copy to Clipboard</a></li>
+							<li class="nav-item"><a class="nav-link" href="#show_snackbar">Show Snackbar</a></li>
 						</ul>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#string_extensions">String Extensions</a>
@@ -185,7 +190,7 @@
 	extensions_kit: ^[version]</code></pre>
 							<li>Click on get packages button or run <code>flutter pub get</code></li>
 							<li>Import</li>
-							<pre><code class="language-dart">import 'package:extensions_kit/extensions_kit.dart';</code></pre>
+							<pre><code>import 'package:extensions_kit/extensions_kit.dart';</code></pre>
 						</ol>
 					</section>
 
@@ -194,8 +199,10 @@
 					<!-- Ext Methods ============================ -->
 					<section id="extensions">
 						<h2>Ext</h2>
-						<p>The Ext mixin extensions includes pixel values for common sizes (dp10 through dp50) and various color constants in both <code>hex</code>
-							and <code>Color</code> format, covering a wide range of shades in categories like gray, slate, red, orange, amber, yellow, and more.
+						<p>The Ext mixin extensions includes pixel values for common sizes (dp10 through dp50) and various color constants in both
+							<code>hex</code>
+							and <code>Color</code> format, covering a wide range of shades in categories like gray, slate, red, orange, amber, yellow,
+							and more.
 							Additionally, it provides easy access to the constants within Flutter widgets. This can be particularly useful
 							for maintaining a consistent design language throughout a Flutter application, ensuring standardized sizes and colors.<br>
 							Available extensions are:
@@ -205,7 +212,7 @@
 					<section id="pixel_values">
 						<h3>Pixel Values</h3>
 						<p>You can access constant pixel values from dp10 through dp50:</p>
-						<pre><code class="language-dart">Ext.dp10; // 10 Pixels
+						<pre><code>Ext.dp10; // 10 Pixels
 Ext.dp12; // 12 Pixels
 Ext.dp13; // 13 Pixels
 Ext.dp14; // 14 Pixels
@@ -236,13 +243,64 @@ Ext.dp50; // 50 Pixels</code></pre>
 					<section id="ext_colors">
 						<h3>Colors</h3>
 						<p>There is a range of colors that you can access in <code>hex</code> or <code>Color</code> format.</p>
-						<pre><code class="language-dart">Text(
+						<pre><code>Text(
 'Hello, World!',
 style: TextStyle(
-	color: rose700, // rose700 color
+	color: Ext.rose700, // rose700 color
 	fontSize: 24.0,
 	),
 )</code></pre>
+					</section>
+
+					<!-- Hex to Color ============================ -->
+					<section id="hexToColor">
+						<h3>Hex to Color</h3>
+						<p>Convert a hexadecimal color code to a corresponding <code>Color</code> object. The input <code>String</code> can be either
+							a 6-digit RGB code or a 7-digit RGBA code, where the optional alpha channel is represented by the first two characters.
+						</p>
+						<pre><code>String hexCode = "#FF5733";
+Color myColor = Ext.hexToColor(hexCode); // Color from hex</code></pre>
+					</section>
+
+					<!-- Get MaterialColor ============================ -->
+					<section id="get_materialColor">
+						<h3>Get MaterialColor</h3>
+						<p>Convert a <code>Color</code> to a corresponding <code>MaterialColor</code>.</p>
+						<pre><code>Color myColor = Colors.blue;
+MaterialColor myMaterialColor = Ext.getMaterialColor(myColor); // MaterialColor</code></pre>
+					</section>
+
+					<!-- Random Color ============================ -->
+					<section id="random_color">
+						<h3>Random Color</h3>
+						<p>There are three methods available to generate a random <code>Color</code></p>
+						<pre><code>Color myRandomColor = Ext.randomColor; // Generates a random color with random RGB values
+
+Color myRandomPrimaryColor = Ext.randomPrimaryColor; // Generates a random primary color
+
+Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque color with a fully opaque alpha value</code></pre>
+					</section>
+
+					<!-- Copy to Clipboard ============================ -->
+					<section id="copy_to_clipboard">
+						<h3>Copy to Clipboard</h3>
+						<p>Copies the provided <code>String</code> to the device clipboard.</p>
+						<pre><code>Ext.copy("Hello, Clipboard!"); // "Hello, Clipboard!" Copied to clipboard!</code></pre>
+					</section>
+
+					<!-- show Snackbar ============================ -->
+					<section id="show_snackbar">
+						<h3>Show Snackbar</h3>
+						<p>A fully customizable method to show snackbar of three different types.</p>
+						<h5>Message Snackbar</h5>
+						<img class="img-fluid" src="assets/images/message_snackbar.png" alt="">
+						<pre><code>Ext.showMessageSnackbar("This is a message Snackbar", context); // Message Snackbar</code></pre>
+						<h5>Error Snackbar</h5>
+						<img class="img-fluid" src="assets/images/error_snackbar.png" alt="">
+						<pre><code>Ext.showErrorSnackbar("This is an Error Snackbar", context); // Error Snackbar</code></pre>
+						<h5>Info Snackbar</h5>
+						<img class="img-fluid" src="assets/images/info_snackbar.png" alt="">
+						<pre><code>Ext.showInfoSnackbar("This is an info Snackbar", context); // Info Snackbar</code></pre>
 					</section>
 
 					<hr class="divider">

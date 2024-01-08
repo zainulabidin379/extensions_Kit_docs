@@ -113,6 +113,13 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#media_query">Media Query Extensions</a></li>
 					<li class="nav-item"><a class="nav-link" href="#theme_extensions">Theme Extensions</a></li>
+					<li class="nav-item"><a class="nav-link" href="#date_extensions">Date Extensions</a>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link" href="#date_format">Format</a></li>
+							<li class="nav-item"><a class="nav-link" href="#date_difference">Difference</a></li>
+							<li class="nav-item"><a class="nav-link" href="#date_only">Date Only</a></li>
+						</ul>
+					</li>
 					<li class="nav-item"><a class="nav-link" href="#acknowledgments">Acknowledgments</a></li>
 					<li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
 					<li class="nav-item"><a class="nav-link" href="#changelog">Changelog</a></li>
@@ -451,6 +458,74 @@ Container(
 Container(
   color: Ext.isLightMode ? Colors.black : Colors.white; // Light mode check
 )</code></pre>
+					</section>
+
+					<hr class="divider">
+
+					<!-- Date Extensions ============================ -->
+					<section id="date_extensions">
+						<h2 class="text-primary">Date Extensions</h2>
+						<p class="lead mb-5">Extensions for adding additional functionality to the <code>DateTime</code> class.</p>
+					</section>
+
+					<!--Format ============================ -->
+					<section id="date_format">
+						<h3>Format</h3>
+						<p>Formats the <code>DateTime</code> according to the specified pattern in a readable form. The <code>format</code> method
+							allows you to create custom date and time formats by using placeholders that represent various components of the date and
+							time.</p>
+						<h6>Supported Placeholders:</h6>
+						<ul>
+							<li><code>yyyy</code>: Full year (e.g., 2022)</li>
+							<li><code>yy</code>: Last two digits of the year (e.g., 22)</li>
+							<li><code>MMMM</code>: Full month name (e.g., January)</li>
+							<li><code>MMM</code>: Abbreviated month name (e.g., Jan)</li>
+							<li><code>MM</code>: Two-digit month (01 - 12)</li>
+							<li><code>M</code>: Single-digit month (1 - 12)</li>
+							<li><code>dd</code>: Two-digit day of the month (01 - 31)</li>
+							<li><code>d</code>: Single-digit day of the month (1 - 31)</li>
+							<li><code>HH</code>: Two-digit hour in 24-hour format (00 - 23)</li>
+							<li><code>hh</code>: Two-digit hour in 12-hour format (01 - 12)</li>
+							<li><code>mm</code>: Two-digit minute (00 - 59)</li>
+							<li><code>ss</code>: Two-digit second (00 - 59)</li>
+							<li><code>a</code>: AM or PM</li>
+							<li><code>EEEE</code>: Full weekday name (e.g., Monday)</li>
+							<li><code>EEE</code>: Abbreviated weekday name (e.g., Mon)</li>
+						</ul>
+						<pre><code class="language-dart">DateTime now = DateTime.now();
+String formattedDate = now.format('yyyy-MM-dd – HH:mm');
+print(formattedDate);  // 2024-01-08 – 15:30</code></pre>
+					</section>
+
+					<!-- Difference ============================ -->
+					<section id="date_difference">
+						<h3>Difference</h3>
+						<p>Get the difference between two <code>DateTime</code> instances in years, months, and days.</p>
+						<p>If you want the result in abbreviated form (y, m, d), pass <code>true</code> to the <code>abbr</code> parameter, which is
+							<code>false</code> by default.
+						</p>
+						<p>The result is formatted as a string indicating the difference in years, months, and days. If a component is zero, it won't
+							be included in the result. <br>
+							<code>b</code> - The other <code>DateTime</code> instance to compare against. <br>
+							<code>abbr</code> - If <code>true</code>, the result will be abbreviated (y, m, d); otherwise, it will be in long form.
+						<pre><code>DateTime start = DateTime.now();
+DateTime end = DateTime.now().add(Duration(days: 500));
+print(start.diffYearsMonthsDays(end));  // Output: 1 year 4 months 15 days
+
+DateTime start2 = DateTime.now();
+DateTime end2 = DateTime.now().add(Duration(days: 370));
+print(start2.diffYearsMonthsDays(end2, abbr: true));  // Output: 1 y 5 d</code></pre>
+						<p>
+							<strong>Note:</strong> This method provides an approximation and may not be entirely accurate, especially when dealing
+							with leap years and months of varying lengths.
+						</p>
+					</section>
+
+					<!-- Date Only ============================ -->
+					<section id="date_only">
+						<h3>Date Only</h3>
+						<p>Extensions to validate and convert <code>String</code> containing numbers.</p>
+						<pre><code></code></pre>
 					</section>
 
 					<hr class="divider">

@@ -118,6 +118,15 @@
 							<li class="nav-item"><a class="nav-link" href="#date_format">Format</a></li>
 							<li class="nav-item"><a class="nav-link" href="#date_difference">Difference</a></li>
 							<li class="nav-item"><a class="nav-link" href="#date_only">Date Only</a></li>
+							<li class="nav-item"><a class="nav-link" href="#is_same_day">Is Same Day</a></li>
+							<li class="nav-item"><a class="nav-link" href="#is_today">Is Today</a></li>
+							<li class="nav-item"><a class="nav-link" href="#is_yesterday">Is Yesterday</a></li>
+							<li class="nav-item"><a class="nav-link" href="#is_tomorrow">Is Tomorrow</a></li>
+							<li class="nav-item"><a class="nav-link" href="#add_hours">Add Hours</a></li>
+							<li class="nav-item"><a class="nav-link" href="#add_days">Add Days</a></li>
+							<li class="nav-item"><a class="nav-link" href="#next_day">Next Day</a></li>
+							<li class="nav-item"><a class="nav-link" href="#previous_day">Previous Day</a></li>
+							<li class="nav-item"><a class="nav-link" href="#days_in_range">Days in Range</a></li>
 						</ul>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#acknowledgments">Acknowledgments</a></li>
@@ -476,7 +485,7 @@ Container(
 							time.</p>
 						<h6>Supported Placeholders:</h6>
 						<ul>
-							<li><code>yyyy</code>: Full year (e.g., 2022)</li>
+							<li><code>yyyy</code>: Full year (e.g., 2024)</li>
 							<li><code>yy</code>: Last two digits of the year (e.g., 22)</li>
 							<li><code>MMMM</code>: Full month name (e.g., January)</li>
 							<li><code>MMM</code>: Abbreviated month name (e.g., Jan)</li>
@@ -510,11 +519,11 @@ print(formattedDate);  // 2024-01-08 – 15:30</code></pre>
 							<code>abbr</code> - If <code>true</code>, the result will be abbreviated (y, m, d); otherwise, it will be in long form.
 						<pre><code>DateTime start = DateTime.now();
 DateTime end = DateTime.now().add(Duration(days: 500));
-print(start.diffYearsMonthsDays(end));  // Output: 1 year 4 months 15 days
+print(start.diffYearsMonthsDays(end));  // 1 year 4 months 15 days
 
 DateTime start2 = DateTime.now();
 DateTime end2 = DateTime.now().add(Duration(days: 370));
-print(start2.diffYearsMonthsDays(end2, abbr: true));  // Output: 1 y 5 d</code></pre>
+print(start2.diffYearsMonthsDays(end2, abbr: true));  // 1 y 5 d</code></pre>
 						<p>
 							<strong>Note:</strong> This method provides an approximation and may not be entirely accurate, especially when dealing
 							with leap years and months of varying lengths.
@@ -524,8 +533,118 @@ print(start2.diffYearsMonthsDays(end2, abbr: true));  // Output: 1 y 5 d</code><
 					<!-- Date Only ============================ -->
 					<section id="date_only">
 						<h3>Date Only</h3>
-						<p>Extensions to validate and convert <code>String</code> containing numbers.</p>
-						<pre><code></code></pre>
+						<p>The <code>dateOnly</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance with the same
+							date as the original but with the time set to midnight (00:00:00). This is useful when you want to work specifically with
+							the date component and ignore the time.</p>
+						<pre><code>DateTime fullDateTime = DateTime(2024, 1, 8, 15, 30);
+DateTime dateOnly = fullDateTime.dateOnly;
+print(dateOnly);  // 2024-01-08 00:00:00.000</code></pre>
+					</section>
+
+					<!-- Is Same Day ============================ -->
+					<section id="is_same_day">
+						<h3>Is Same Day</h3>
+						<p>The <code>isSameDay</code> method compares the year, month, and day components of two <code>DateTime</code> instances. It
+							returns <code>true</code> if they are on the same day and <code>false</code> otherwise.</p>
+						<pre><code>DateTime date1 = DateTime(2024, 1, 8, 12, 0);
+DateTime date2 = DateTime(2024, 1, 8, 18, 30);
+
+print(date1.isSameDay(date2));  // true</code></pre>
+					</section>
+
+					<!-- Is Today ============================ -->
+					<section id="is_today">
+						<h3>Is Today</h3>
+						<p>The <code>isToday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the current
+							date. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a convenient way
+							to determine if a date corresponds to the current day.</p>
+						<pre><code>DateTime today = DateTime.now();
+DateTime otherDate = DateTime(2024, 1, 8);
+
+print(today.isToday);        // true
+print(otherDate.isToday);    // false</code></pre>
+					</section>
+
+					<!-- Is Yesterday ============================ -->
+					<section id="is_yesterday">
+						<h3>Is Yesterday</h3>
+						<p>The <code>isYesterday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the
+							date of yesterday. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a
+							convenient way to determine if a date corresponds to yesterday.</p>
+						<pre><code>DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+DateTime otherDate = DateTime(2024, 1, 8);
+
+print(yesterday.isYesterday);        // true
+print(otherDate.isYesterday);        // false</code></pre>
+					</section>
+
+					<!-- Is Tomorrow ============================ -->
+					<section id="is_tomorrow">
+						<h3>Is Tomorrow</h3>
+						<p>The <code>isTomorrow</code> extension checks whether the date of the <code>DateTime</code> instance will be the same as the
+							date of tomorrow. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a
+							convenient way to determine if a date corresponds to tomorrow.</p>
+						<pre><code>DateTime tomorrow = DateTime.now().add(Duration(days: 1));
+DateTime otherDate = DateTime(2024, 1, 8);
+
+print(tomorrow.isTomorrow);        // true
+print(otherDate.isTomorrow);       // false</code></pre>
+					</section>
+
+					<!-- Add Hours ============================ -->
+					<section id="add_hours">
+						<h3>Add Hours</h3>
+						<p>The <code>addHours</code> method creates a new <code>DateTime</code> instance by adding the specified number of hours to
+							the original date. The date components (year, month, day) remain unchanged.</p>
+						<pre><code>DateTime currentDate = DateTime(2024, 1, 8, 12, 0);
+DateTime futureDate = currentDate.addHours(3);
+print(futureDate);  // 2024-01-08 15:00:00.000</code></pre>
+					</section>
+
+					<!-- Add Days ============================ -->
+					<section id="add_days">
+						<h3>Add Days</h3>
+						<p>The <code>addDays</code> method creates a new <code>DateTime</code> instance by adding the specified number of days to the
+							original date. The time components (hour, minute, second, millisecond, microsecond) remain unchanged.</p>
+						<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime futureDate = currentDate.addDays(5);
+print(futureDate);  // 2024-01-13 00:00:00.000</code></pre>
+					</section>
+
+					<!-- Next Day ============================ -->
+					<section id="next_day">
+						<h3>Next Day</h3>
+						<p>The <code>nextDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance representing
+							the day immediately following the original date.</p>
+						<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime nextDay = currentDate.nextDay;
+print(nextDay);  // 2024-01-09 00:00:00.000</code></pre>
+					</section>
+
+					<!-- Previous Day ============================ -->
+					<section id="previous_day">
+						<h3>Previous Day</h3>
+						<p>The <code>previousDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance
+							representing the day immediately preceding the original date.</p>
+						<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime previousDay = currentDate.previousDay;
+print(previousDay);  // 2024-01-07 00:00:00.000</code></pre>
+					</section>
+
+					<!-- Days in Range ============================ -->
+					<section id="days_in_range">
+						<h3>Days in Range</h3>
+						<p>The <code>daysInRange</code> method generates a sequence of <code>DateTime</code> instances starting from the
+							<code>start</code> date and continuing until, but not including, the <code>end</code> date. It accounts for time zone
+							changes during the iteration.
+						</p>
+						<p><strong>Note:</strong> The range is inclusive for the <code>start</code> date and exclusive for the <code>end</code> date.
+						</p>
+						<pre><code>DateTime startDate = DateTime(2024, 1, 8);
+DateTime endDate = DateTime(2024, 1, 12);
+
+Iterable<DateTime> dateRange = DateTime.daysInRange(startDate, endDate);
+print(dateRange.toList());  // [2024-01-08 00:00:00.000, ..., 2024-01-11 00:00:00.000]</code></pre>
 					</section>
 
 					<hr class="divider">

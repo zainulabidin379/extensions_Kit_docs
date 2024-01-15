@@ -87,7 +87,7 @@
 							<li class="nav-item"><a class="nav-link" href="#package_installation">Installation</a></li>
 						</ul>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#extensions">Extensions Class</a>
+					<li class="nav-item"><a class="nav-link" href="#extensions">Ext Class</a>
 						<ul class="nav flex-column">
 							<li class="nav-item"><a class="nav-link" href="#pixel_values">Pixel values</a></li>
 							<li class="nav-item"><a class="nav-link" href="#ext_colors">Colors</a></li>
@@ -100,7 +100,7 @@
 							<li class="nav-item"><a class="nav-link" href="#ext_platform">Platform</a></li>
 						</ul>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#string_extensions">String Extensions</a>
+					<li class="nav-item"><a class="nav-link" href="#string_extensions">String</a>
 						<ul class="nav flex-column">
 							<li class="nav-item"><a class="nav-link" href="#isEmail">Check Email</a></li>
 							<li class="nav-item"><a class="nav-link" href="#capitalize">Capitalize</a></li>
@@ -111,9 +111,9 @@
 							<li class="nav-item"><a class="nav-link" href="#match_regexp">Match RegExp</a></li>
 						</ul>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#media_query">Media Query Extensions</a></li>
-					<li class="nav-item"><a class="nav-link" href="#theme_extensions">Theme Extensions</a></li>
-					<li class="nav-item"><a class="nav-link" href="#date_extensions">Date Extensions</a>
+					<li class="nav-item"><a class="nav-link" href="#media_query">Media Query</a></li>
+					<li class="nav-item"><a class="nav-link" href="#theme_extensions">Theme</a></li>
+					<li class="nav-item"><a class="nav-link" href="#date_extensions">Date</a>
 						<ul class="nav flex-column">
 							<li class="nav-item"><a class="nav-link" href="#date_format">Format</a></li>
 							<li class="nav-item"><a class="nav-link" href="#date_difference">Difference</a></li>
@@ -138,6 +138,18 @@
 							<li class="nav-item"><a class="nav-link" href="#next_day">Next Day</a></li>
 							<li class="nav-item"><a class="nav-link" href="#previous_day">Previous Day</a></li>
 							<li class="nav-item"><a class="nav-link" href="#days_in_range">Days in Range</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#number_extensions">Number</a>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link" href="#loremIpsum">Lorem Ipsum</a></li>
+							<li class="nav-item"><a class="nav-link" href="#ordinal">Ordinal</a></li>
+							<li class="nav-item"><a class="nav-link" href="#isBetween">Is Between</a></li>
+							<li class="nav-item"><a class="nav-link" href="#isOutside">Is Outside</a></li>
+							<li class="nav-item"><a class="nav-link" href="#num_heightBox">HeightBox</a></li>
+							<li class="nav-item"><a class="nav-link" href="#num_widthBox">WidthBox</a></li>
+							<li class="nav-item"><a class="nav-link" href="#num_padding">Padding</a></li>
+							<li class="nav-item"><a class="nav-link" href="#circularRadius">Circular Radius</a></li>
 						</ul>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#acknowledgments">Acknowledgments</a></li>
@@ -841,6 +853,159 @@ print(dateRange.toList());  // [2024-01-08 00:00:00.000, ..., 2024-01-11 00:00:0
 
 					<hr class="divider">
 
+					<!-- Number Extensions ============================ -->
+					<section id="number_extensions">
+						<h2 class="text-primary">Number Extensions</h2>
+						<p>Extensions for adding additional functionality to the <code>num</code></p>
+
+						<!-- Lorem Ipsum ============================ -->
+						<section id="loremIpsum">
+							<h3>Lorem Ipsum</h3>
+							<p>The <code>dateOnly</code> method generates Lorem Ipsum text with a word count equal to <code>this</code>. It utilizes a
+								predefined list of words to construct the text, repeating the words as needed to achieve the specified word count.</p>
+							<pre><code>String loremIpsumText = 10.loremIpsum();
+print(loremIpsumText); // 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do'</code></pre>
+						</section>
+
+						<!-- Ordinal ============================ -->
+						<section id="ordinal">
+							<h3>Ordinal</h3>
+							<p>The <code>ordinal</code> extension converts an integer into its English ordinal representation. It is commonly used to
+								format numbers as ordinals, such as "1st", "22nd", "143rd", etc.</p>
+							<pre><code>print(1.ordinal);   // 1st
+print(22.ordinal);  // 22nd
+print(143.ordinal); // 143rd
+print(0.ordinal);   // 0th</code></pre>
+						</section>
+
+						<!-- Is Between ============================ -->
+						<section id="isBetween">
+							<h3>Is Between</h3>
+							<p>The <code>between</code> method checks if the current value is between the given [min] (inclusive) and [max]
+								(exclusive). It returns `true` if the value is greater than or equal to [min] and less than [max].</p>
+							<pre><code>num value = 5;
+bool isBetween = value.between(0, 10);
+print(isBetween);  // true</code></pre>
+						</section>
+
+						<!-- Is Outside ============================ -->
+						<section id="isOutside">
+							<h3>Is Outside</h3>
+							<p>The <code>outside</code> method checks if the current value is outside the given [min] (exclusive) and [max]
+								(inclusive). It returns `true` if the value is less than [min] and greater than [max].</p>
+							<pre><code>num value = 15;
+bool isOutside = value.outside(0, 10);
+print(isOutside);  // true</code></pre>
+						</section>
+
+						<!-- HightBox ============================ -->
+						<section id="num_heightBox">
+							<h3>HightBox</h3>
+							<p>The <code>hightBox</code> extension returns a <code>SizedBox</code> widget with the height set to the value of the
+								current integer. It is commonly used in Flutter UI layouts to add empty space with a specific height.</p>
+							<pre><code>int heightValue = 20;
+SizedBox heightBox = heightValue.heightBox;</code></pre>
+						</section>
+
+						<!-- WidthBox ============================ -->
+						<section id="num_widthBox">
+							<h3>WidthBox</h3>
+							<p>The <code>widthBox</code> extension returns a <code>SizedBox</code> widget with the Width set to the value of the
+								current integer. It is commonly used in Flutter UI layouts to add empty space with a specific Width.</p>
+							<pre><code>int widthValue = 20;
+SizedBox widthBox = widthValue.widthBox;</code></pre>
+						</section>
+
+						<!-- Padding ============================ -->
+						<section id="num_padding">
+							<h3>Padding</h3>
+							<!-- PadAll ============================ -->
+							<h5>PadAll</h5>
+							<p>The <code>padAll</code> method returns <code>EdgeInsets</code> with all offsets set to the value of the current
+								integer. It is useful for creating consistent padding on all sides.</p>
+							<pre><code>Padding(
+padding: 15.padAll(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadVert ============================ -->
+							<h5>PadVert</h5>
+							<p>The <code>padVert</code> method returns <code>EdgeInsets</code> with symmetric horizontal offsets set to the value of
+								the current integer. It is useful for creating padding on the top and bottom sides.</p>
+							<pre><code>Padding(
+padding: 15.padVert(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadHrz ============================ -->
+							<h5>PadHrz</h5>
+							<p>The <code>padHrz</code> method returns <code>EdgeInsets</code> with symmetric horizontal offsets set to the value of
+								the current integer. It is useful for creating padding on the left and right sides.</p>
+							<pre><code>Padding(
+padding: 15.padHrz(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadTop ============================ -->
+							<h5>PadTop</h5>
+							<p>The <code>padTop</code> method returns <code>EdgeInsets</code> with only the top offset set to the value of the current
+								integer. It is useful for creating padding on the top side.</p>
+							<pre><code>Padding(
+padding: 15.padTop(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadBottom ============================ -->
+							<h5>PadBottom</h5>
+							<p>The <code>padBottom</code> method returns <code>EdgeInsets</code> with only the bottom offset set to the value of the
+								current integer. It is useful for creating padding on the bottom side.</p>
+							<pre><code>Padding(
+padding: 15.padBottom(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadLeft ============================ -->
+							<h5>PadLeft</h5>
+							<p>The <code>padLeft</code> method returns <code>EdgeInsets</code> with only the left offset set to the value of the
+								current integer. It is useful for creating padding on the left side.</p>
+							<pre><code>Padding(
+padding: 15.padLeft(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadRight ============================ -->
+							<h5>PadRight</h5>
+							<p>The <code>padRight</code> method returns <code>EdgeInsets</code> with only the right offset set to the value of the
+								current integer. It is useful for creating padding on the right side.</p>
+							<pre><code>Padding(
+padding: 15.padRight(), // Here
+widget: Container(),
+)</code></pre>
+
+							<!-- PadOnly ============================ -->
+							<h5>PadOnly</h5>
+							<p>The <code>padOnly</code> method returns <code>EdgeInsets</code> with specified offsets based on the provided
+								parameters. It is useful for creating custom padding with different values for each side.</p>
+							<pre><code>Padding(
+padding:padOnly(l: 5, r: 5, t: 10, b: 15), // Here
+widget: Container(),
+)</code></pre>
+						</section>
+
+						<!-- Circular Radius ============================ -->
+						<section id="circularRadius">
+							<h3>Circular Radius</h3>
+							<p>The <code>circular</code> method returns a <code>BorderRadiusGeometry</code> with a circular radius set to the value of
+								the current integer. It is useful for creating rounded corners with a consistent circular radius.</p>
+							<pre><code>Container(
+decoration: BoxDecoration(
+  borderRadius: 15.circular(), // Here
+))</code></pre>
+						</section>
+					</section>
+
+					<hr class="divider">
+
 					<!-- Acknowledgments ============================ -->
 					<section id="acknowledgments">
 						<h2 class="text-primary">Acknowledgments</h2>
@@ -860,7 +1025,8 @@ print(dateRange.toList());  // [2024-01-08 00:00:00.000, ..., 2024-01-11 00:00:0
 					<section id="support">
 						<h2 class="text-primary">Support</h2>
 						<p>If this package helped you please leave a like and share it with your friends. <a class="btn btn-primary" target="_blank"
-								href="https://pub.dev/packages/extensions_kit"><i class="fas fa-external-link-alt mr-1"></i> Share</a></p>
+								href="https://pub.dev/packages/extensions_kit"><i class="fas fa-external-link-alt mr-1"></i>
+								Share</a></p>
 					</section>
 
 					<hr class="divider">

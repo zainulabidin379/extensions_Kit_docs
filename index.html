@@ -547,6 +547,38 @@ print(start2.diffYearsMonthsDays(end2, abbr: true));  // 1 y 5 d</code></pre>
 								<strong>Note:</strong> This method provides an approximation and may not be entirely accurate, especially when dealing
 								with leap years and months of varying lengths.
 							</p>
+							<!-- Difference in Days ============================ -->
+							<h5>Difference in Days</h5>
+							<p>Get the difference between two <code>DateTime</code> instances in days.</p>
+							<pre><code>DateTime date1 = DateTime(2024, 1, 8);
+DateTime date2 = DateTime(2024, 1, 12);
+
+int daysDifference = date2.diffDays(date1);
+print(daysDifference);  // 4</code></pre>
+							<!-- Difference in Hours ============================ -->
+							<h5>Difference in Hours</h5>
+							<p>Get the difference between two <code>DateTime</code> instances in hours.</p>
+							<pre><code>DateTime date1 = DateTime(2024, 1, 8, 12, 0);
+DateTime date2 = DateTime(2024, 1, 12, 9, 30);
+
+int hoursDifference = date2.diffHours(date1);
+print(hoursDifference);  // 92</code></pre>
+							<!-- Difference in Minutes ============================ -->
+							<h5>Difference in Minutes</h5>
+							<p>Get the difference between two <code>DateTime</code> instances in minutes.</p>
+							<pre><code>DateTime date1 = DateTime(2024, 1, 8, 12, 0);
+DateTime date2 = DateTime(2024, 1, 12, 9, 30);
+
+int minutesDifference = date2.diffMinutes(date1);
+print(minutesDifference);  // 5530</code></pre>
+							<!-- Difference in Seconds ============================ -->
+							<h5>Difference in Seconds</h5>
+							<p>Get the difference between two <code>DateTime</code> instances in seconds.</p>
+							<pre><code>DateTime date1 = DateTime(2024, 1, 8, 12, 0, 0);
+DateTime date2 = DateTime(2024, 1, 12, 9, 30, 15);
+
+int secondsDifference = date2.diffSeconds(date1);
+print(secondsDifference);  // 331215</code></pre>
 						</section>
 
 						<!-- Date Only ============================ -->
@@ -640,8 +672,8 @@ print(otherDate.isTomorrow);       // false</code></pre>
 							<pre><code>DateTime firstDay = DateTime(2024, 1, 1);
 DateTime otherDay = DateTime(2024, 1, 8);
 
-print(firstDay.isFirstDayOfMonth);  // Output: true
-print(otherDay.isFirstDayOfMonth);  // Output: false</code></pre>
+print(firstDay.isFirstDayOfMonth);  // true
+print(otherDay.isFirstDayOfMonth);  // false</code></pre>
 						</section>
 
 						<!-- Is Last Day of Month ============================ -->
@@ -654,8 +686,8 @@ print(otherDay.isFirstDayOfMonth);  // Output: false</code></pre>
 							<pre><code>DateTime lastDay = DateTime(2024, 1, 31);
 DateTime otherDay = DateTime(2024, 1, 18);
 
-print(lastDay.isLastDayOfMonth);  // Output: true
-print(otherDay.isLastDayOfMonth);  // Output: false</code></pre>
+print(lastDay.isLastDayOfMonth);  // true
+print(otherDay.isLastDayOfMonth);  // false</code></pre>
 						</section>
 
 						<!-- First Day of Month ============================ -->
@@ -666,7 +698,7 @@ print(otherDay.isLastDayOfMonth);  // Output: false</code></pre>
 							</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime firstDay = currentDate.firstDayOfMonth;
-print(firstDay);  // Output: 2024-01-01 00:00:00</code></pre>
+print(firstDay);  // 2024-01-01 00:00:00</code></pre>
 						</section>
 
 						<!-- Last Day of Month ============================ -->
@@ -677,7 +709,7 @@ print(firstDay);  // Output: 2024-01-01 00:00:00</code></pre>
 							</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime lastDayOfMonth = currentDate.lastDayOfMonth;
-print(lastDayOfMonth);  // Output: 2024-01-31 00:00:00</code></pre>
+print(lastDayOfMonth);  // 2024-01-31 00:00:00</code></pre>
 						</section>
 
 						<!-- First Day of Week ============================ -->
@@ -690,7 +722,7 @@ print(lastDayOfMonth);  // Output: 2024-01-31 00:00:00</code></pre>
 							</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime firstDayOfWeek = currentDate.firstDayOfWeek;
-print(firstDayOfWeek);  // Output: 2024-01-03 12:00:00.000 (Assuming Monday is the first day of the week)</code></pre>
+print(firstDayOfWeek);  // 2024-01-03 12:00:00.000 (Assuming Monday is the first day of the week)</code></pre>
 						</section>
 
 						<!-- Last Day of Week ============================ -->
@@ -703,7 +735,7 @@ print(firstDayOfWeek);  // Output: 2024-01-03 12:00:00.000 (Assuming Monday is t
 							</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime lastDayOfWeek = currentDate.lastDayOfWeek;
-print(lastDayOfWeek);  // Output: 2024-01-09 12:00:00.000 (Assuming Sunday is the last day of the week)</code></pre>
+print(lastDayOfWeek);  // 2024-01-09 12:00:00.000 (Assuming Sunday is the last day of the week)</code></pre>
 						</section>
 
 						<!-- Previous Month ============================ -->
@@ -713,7 +745,7 @@ print(lastDayOfWeek);  // Output: 2024-01-09 12:00:00.000 (Assuming Sunday is th
 								and time as the original date but adjusted to the exact date of the previous month.</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime previousMonthDate = currentDate.previousMonth;
-print(previousMonthDate);  // Output: 2023-12-08 00:00:00</code></pre>
+print(previousMonthDate);  // 2023-12-08 00:00:00</code></pre>
 						</section>
 
 						<!-- Next Month ============================ -->
@@ -723,7 +755,7 @@ print(previousMonthDate);  // Output: 2023-12-08 00:00:00</code></pre>
 								time as the original date but adjusted to the exact date of the next month.</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime nextMonthDate = currentDate.nextMonth;
-print(nextMonthDate);  // Output: 2023-2-08 00:00:00</code></pre>
+print(nextMonthDate);  // 2023-2-08 00:00:00</code></pre>
 						</section>
 
 						<!-- Previous Week ============================ -->
@@ -733,7 +765,7 @@ print(nextMonthDate);  // Output: 2023-2-08 00:00:00</code></pre>
 								seven days from the original date, representing the exact date of the last week.</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 15);
 DateTime previousWeekDate = currentDate.previousWeek;
-print(previousWeekDate);  // Output: 2024-1-8 00:00:00</code></pre>
+print(previousWeekDate);  // 2024-1-8 00:00:00</code></pre>
 						</section>
 
 						<!-- Next Week ============================ -->
@@ -743,7 +775,7 @@ print(previousWeekDate);  // Output: 2024-1-8 00:00:00</code></pre>
 								the original date, representing the exact date of the coming week.</p>
 							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime nextMonthWeek = currentDate.nextWeek;
-print(nextWeekDate);  // Output: 2024-1-15 00:00:00</code></pre>
+print(nextWeekDate);  // 2024-1-15 00:00:00</code></pre>
 						</section>
 
 						<!-- Add Hours ============================ -->

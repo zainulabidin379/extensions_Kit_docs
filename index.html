@@ -119,9 +119,20 @@
 							<li class="nav-item"><a class="nav-link" href="#date_difference">Difference</a></li>
 							<li class="nav-item"><a class="nav-link" href="#date_only">Date Only</a></li>
 							<li class="nav-item"><a class="nav-link" href="#is_same_day">Is Same Day</a></li>
+							<li class="nav-item"><a class="nav-link" href="#is_same_week">Is Same Week</a></li>
 							<li class="nav-item"><a class="nav-link" href="#is_today">Is Today</a></li>
 							<li class="nav-item"><a class="nav-link" href="#is_yesterday">Is Yesterday</a></li>
 							<li class="nav-item"><a class="nav-link" href="#is_tomorrow">Is Tomorrow</a></li>
+							<li class="nav-item"><a class="nav-link" href="#isFirstDayOfMonth">Is First Day of Month</a></li>
+							<li class="nav-item"><a class="nav-link" href="#isLastDayOfMonth">Is Last Day of Month</a></li>
+							<li class="nav-item"><a class="nav-link" href="#firstDayOfMonth">First Day of Month</a></li>
+							<li class="nav-item"><a class="nav-link" href="#lastDayOfMonth">Last Day of Month</a></li>
+							<li class="nav-item"><a class="nav-link" href="#firstDayOfWeek">First Day of Week</a></li>
+							<li class="nav-item"><a class="nav-link" href="#lastDayOfWeek">Last Day of Week</a></li>
+							<li class="nav-item"><a class="nav-link" href="#previousMonth">Previous Month</a></li>
+							<li class="nav-item"><a class="nav-link" href="#nextMonth">Next Month</a></li>
+							<li class="nav-item"><a class="nav-link" href="#previousWeek">Previous Week</a></li>
+							<li class="nav-item"><a class="nav-link" href="#nextWeek">Next Week</a></li>
 							<li class="nav-item"><a class="nav-link" href="#add_hours">Add Hours</a></li>
 							<li class="nav-item"><a class="nav-link" href="#add_days">Add Days</a></li>
 							<li class="nav-item"><a class="nav-link" href="#next_day">Next Day</a></li>
@@ -199,12 +210,12 @@
 							for maintaining a consistent design language throughout a Flutter application, ensuring standardized sizes and colors.<br>
 							Available extensions are:
 						</p>
-					</section>
-					<!-- Pixel Values ============================ -->
-					<section id="pixel_values">
-						<h3>Pixel Values</h3>
-						<p>You can access constant pixel values from dp10 through dp50:</p>
-						<pre><code class="language-dart">Ext.dp10; // 10 Pixels
+
+						<!-- Pixel Values ============================ -->
+						<section id="pixel_values">
+							<h3>Pixel Values</h3>
+							<p>You can access constant pixel values from dp10 through dp50:</p>
+							<pre><code class="language-dart">Ext.dp10; // 10 Pixels
 Ext.dp12; // 12 Pixels
 Ext.dp13; // 13 Pixels
 Ext.dp14; // 14 Pixels
@@ -229,97 +240,99 @@ Ext.dp40; // 40 Pixels
 Ext.dp45; // 45 Pixels
 Ext.dp50; // 50 Pixels</code></pre>
 
-					</section>
+						</section>
 
-					<!-- Colors ============================ -->
-					<section id="ext_colors">
-						<h3>Colors</h3>
-						<p>There is a range of colors that you can access in <code>hex</code> or <code>Color</code> format.</p>
-						<pre><code  class="language-dart">Text(
+						<!-- Colors ============================ -->
+						<section id="ext_colors">
+							<h3>Colors</h3>
+							<p>There is a range of colors that you can access in <code>hex</code> or <code>Color</code> format.</p>
+							<pre><code  class="language-dart">Text(
   'Hello, World!',
   style: TextStyle(
    color: Ext.rose700, // rose700 color
    fontSize: 24.0,
    ),
 )</code></pre>
-					</section>
+						</section>
 
-					<!-- Hex to Color ============================ -->
-					<section id="hexToColor">
-						<h3>Hex to Color</h3>
-						<p>Convert a hexadecimal color code to a corresponding <code>Color</code> object. The input <code>String</code> can be either
-							a 6-digit RGB code or a 7-digit RGBA code, where the optional alpha channel is represented by the first two characters.
-						</p>
-						<pre><code>String hexCode = "#FF5733";
+						<!-- Hex to Color ============================ -->
+						<section id="hexToColor">
+							<h3>Hex to Color</h3>
+							<p>Convert a hexadecimal color code to a corresponding <code>Color</code> object. The input <code>String</code> can be
+								either
+								a 6-digit RGB code or a 7-digit RGBA code, where the optional alpha channel is represented by the first two
+								characters.
+							</p>
+							<pre><code>String hexCode = "#FF5733";
 Color myColor = Ext.hexToColor(hexCode); // Color from hex</code></pre>
-					</section>
+						</section>
 
-					<!-- Get MaterialColor ============================ -->
-					<section id="get_materialColor">
-						<h3>Get MaterialColor</h3>
-						<p>Convert a <code>Color</code> to a corresponding <code>MaterialColor</code>.</p>
-						<pre><code>Color myColor = Colors.blue;
+						<!-- Get MaterialColor ============================ -->
+						<section id="get_materialColor">
+							<h3>Get MaterialColor</h3>
+							<p>Convert a <code>Color</code> to a corresponding <code>MaterialColor</code>.</p>
+							<pre><code>Color myColor = Colors.blue;
 MaterialColor myMaterialColor = Ext.getMaterialColor(myColor); // MaterialColor</code></pre>
-					</section>
+						</section>
 
-					<!-- Random Color ============================ -->
-					<section id="random_color">
-						<h3>Random Color</h3>
-						<p>There are three methods available to generate a random <code>Color</code></p>
-						<pre><code>Color myRandomColor = Ext.randomColor; // Generates a random color with random RGB values
+						<!-- Random Color ============================ -->
+						<section id="random_color">
+							<h3>Random Color</h3>
+							<p>There are three methods available to generate a random <code>Color</code></p>
+							<pre><code>Color myRandomColor = Ext.randomColor; // Generates a random color with random RGB values
 
 Color myRandomPrimaryColor = Ext.randomPrimaryColor; // Generates a random primary color
 
 Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque color with a fully opaque alpha value</code></pre>
-					</section>
+						</section>
 
-					<!-- Copy to Clipboard ============================ -->
-					<section id="copy_to_clipboard">
-						<h3>Copy to Clipboard</h3>
-						<p>Copies the provided <code>String</code> to the device clipboard.</p>
-						<pre><code>Ext.copy("Hello, Clipboard!"); // "Hello, Clipboard!" Copied to clipboard!</code></pre>
-					</section>
+						<!-- Copy to Clipboard ============================ -->
+						<section id="copy_to_clipboard">
+							<h3>Copy to Clipboard</h3>
+							<p>Copies the provided <code>String</code> to the device clipboard.</p>
+							<pre><code>Ext.copy("Hello, Clipboard!"); // "Hello, Clipboard!" Copied to clipboard!</code></pre>
+						</section>
 
-					<!-- show Snackbar ============================ -->
-					<section id="show_snackbar">
-						<h3>Show Snackbar</h3>
-						<p>A fully customizable method to show snackbar of three different types.</p>
-						<h5>Message Snackbar</h5>
-						<a class="popup-img" href="assets/images/message_snackbar.png">
-							<img class="img-fluid" src="assets/images/message_snackbar.png" alt="image">
-						</a>
-						<pre><code>Ext.showMessageSnackbar("This is a message Snackbar", context); // Message Snackbar</code></pre>
-						<h5>Error Snackbar</h5>
-						<a class="popup-img" href="assets/images/error_snackbar.png">
-							<img class="img-fluid" src="assets/images/error_snackbar.png" alt="image">
-						</a>
-						<pre><code>Ext.showErrorSnackbar("This is an Error Snackbar", context); // Error Snackbar</code></pre>
-						<h5>Info Snackbar</h5>
-						<a class="popup-img" href="assets/images/info_snackbar.png">
-							<img class="img-fluid" src="assets/images/info_snackbar.png" alt="image">
-						</a>
-						<pre><code>Ext.showInfoSnackbar("This is an info Snackbar", context); // Info Snackbar</code></pre>
-					</section>
+						<!-- show Snackbar ============================ -->
+						<section id="show_snackbar">
+							<h3>Show Snackbar</h3>
+							<p>A fully customizable method to show snackbar of three different types.</p>
+							<h5>Message Snackbar</h5>
+							<a class="popup-img" href="assets/images/message_snackbar.png">
+								<img class="img-fluid" src="assets/images/message_snackbar.png" alt="image">
+							</a>
+							<pre><code>Ext.showMessageSnackbar("This is a message Snackbar", context); // Message Snackbar</code></pre>
+							<h5>Error Snackbar</h5>
+							<a class="popup-img" href="assets/images/error_snackbar.png">
+								<img class="img-fluid" src="assets/images/error_snackbar.png" alt="image">
+							</a>
+							<pre><code>Ext.showErrorSnackbar("This is an Error Snackbar", context); // Error Snackbar</code></pre>
+							<h5>Info Snackbar</h5>
+							<a class="popup-img" href="assets/images/info_snackbar.png">
+								<img class="img-fluid" src="assets/images/info_snackbar.png" alt="image">
+							</a>
+							<pre><code>Ext.showInfoSnackbar("This is an info Snackbar", context); // Info Snackbar</code></pre>
+						</section>
 
-					<!-- Distance b/w Coordinates ============================ -->
-					<section id="distance_between_coordinates">
-						<h3>Distance b/w Coordinates</h3>
-						<p>Calculates the great-circle distance between two geographic coordinates (Latitude, Longitude) using the Haversine
-							formula.
-							<br>The input coordinates are specified in decimal degrees format.<br>
-							<code>lat1</code> - Latitude of the first point.<br>
-							<code>lng1</code> - Longitude of the first point.<br>
-							<code>lat2</code> - Latitude of the second point.<br>
-							<code>lng2</code> - Longitude of the second point.
-						</p>
-						<pre><code>double distance = Ext.getDistanceFromCoordinates(37.7749, -122.4194, 34.0522, -118.2437); // 559.12 </code></pre>
-					</section>
+						<!-- Distance b/w Coordinates ============================ -->
+						<section id="distance_between_coordinates">
+							<h3>Distance b/w Coordinates</h3>
+							<p>Calculates the great-circle distance between two geographic coordinates (Latitude, Longitude) using the Haversine
+								formula.
+								<br>The input coordinates are specified in decimal degrees format.<br>
+								<code>lat1</code> - Latitude of the first point.<br>
+								<code>lng1</code> - Longitude of the first point.<br>
+								<code>lat2</code> - Latitude of the second point.<br>
+								<code>lng2</code> - Longitude of the second point.
+							</p>
+							<pre><code>double distance = Ext.getDistanceFromCoordinates(37.7749, -122.4194, 34.0522, -118.2437); // 559.12 </code></pre>
+						</section>
 
-					<!-- Platform ============================ -->
-					<section id="ext_platform">
-						<h3>Platform</h3>
-						<p>To check platform related info there are a set of methods available that you can use.</p>
-						<pre><code class="language-dart">Ext.isReleaseMode; // Checks whether the application is running in release mode.
+						<!-- Platform ============================ -->
+						<section id="ext_platform">
+							<h3>Platform</h3>
+							<p>To check platform related info there are a set of methods available that you can use.</p>
+							<pre><code class="language-dart">Ext.isReleaseMode; // Checks whether the application is running in release mode.
 
 Ext.isDebugMode; // Checks whether the application is running in debug mode.
 
@@ -342,6 +355,7 @@ Ext.isWindows; // Checks whether the device is running on Windows.
 Ext.isFuchsia; // Checks whether the device is running on Fuchsia.
 
 Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
+						</section>
 					</section>
 
 					<hr class="divider">
@@ -350,43 +364,43 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 					<section id="string_extensions">
 						<h2 class="text-primary">String Extensions</h2>
 						<p class="lead mb-5">Extensions for adding additional functionality to the <code>String</code>.</p>
-					</section>
 
-					<!-- IsEmail ============================ -->
-					<section id="isEmail">
-						<h3>Check Email</h3>
-						<p>Validate an email</p>
-						<pre><code>"example@mail.com".isEmail; // true</code></pre>
-					</section>
 
-					<!-- Capitalize ============================ -->
-					<section id="capitalize">
-						<h3>Capitalize</h3>
-						<p>Capitalize each word in the <code>String</code></p>
-						<pre><code>"hello world".capitalize; // Hello World</code></pre>
-						<p>Capitalizes the first word in the <code>String</code></p>
-						<pre><code>"hello world".capitalizeFirst; // Hello world</code></pre>
-					</section>
+						<!-- IsEmail ============================ -->
+						<section id="isEmail">
+							<h3>Check Email</h3>
+							<p>Validate an email</p>
+							<pre><code>"example@mail.com".isEmail; // true</code></pre>
+						</section>
 
-					<!-- Remove Spaces ============================ -->
-					<section id="remove_spaces">
-						<h3>Remove Spaces</h3>
-						<p>Remove all the whitespace from the <code>String</code></p>
-						<pre><code>"This Is A Test String".removeAllWhitespace; // ThisIsATestString</code></pre>
-					</section>
+						<!-- Capitalize ============================ -->
+						<section id="capitalize">
+							<h3>Capitalize</h3>
+							<p>Capitalize each word in the <code>String</code></p>
+							<pre><code>"hello world".capitalize; // Hello World</code></pre>
+							<p>Capitalizes the first word in the <code>String</code></p>
+							<pre><code>"hello world".capitalizeFirst; // Hello world</code></pre>
+						</section>
 
-					<!-- Mock ============================ -->
-					<section id="mock">
-						<h3>Mock</h3>
-						<p>Mocks a <code>String</code> that needs to be translated or changed later.</p>
-						<pre><code>"Hello world".mock; // Hello world 🧨</code></pre>
-					</section>
+						<!-- Remove Spaces ============================ -->
+						<section id="remove_spaces">
+							<h3>Remove Spaces</h3>
+							<p>Remove all the whitespace from the <code>String</code></p>
+							<pre><code>"This Is A Test String".removeAllWhitespace; // ThisIsATestString</code></pre>
+						</section>
 
-					<!-- Booleans ============================ -->
-					<section id="booleans">
-						<h3>Booleans</h3>
-						<p>Check if a <code>String</code> is <code>bool</code> or convert a <code>String</code> to <code>bool</code></p>
-						<pre><code class="language-dart">// If caseSensitive is true, which is the default,
+						<!-- Mock ============================ -->
+						<section id="mock">
+							<h3>Mock</h3>
+							<p>Mocks a <code>String</code> that needs to be translated or changed later.</p>
+							<pre><code>"Hello world".mock; // Hello world 🧨</code></pre>
+						</section>
+
+						<!-- Booleans ============================ -->
+						<section id="booleans">
+							<h3>Booleans</h3>
+							<p>Check if a <code>String</code> is <code>bool</code> or convert a <code>String</code> to <code>bool</code></p>
+							<pre><code class="language-dart">// If caseSensitive is true, which is the default,
 // The only accepted inputs are the strings "true" and "false",
 "true".isBool(); // true
 "TRUE".isBool(); // false 
@@ -397,13 +411,13 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 "true".toBool(); // true
 "TRUE".toBool(); // throws error 
 "TRUE".toBool(caseSensitive: false); // true</code></pre>
-					</section>
+						</section>
 
-					<!-- Num String ============================ -->
-					<section id="num_string">
-						<h3>Num String</h3>
-						<p>Extensions to validate and convert <code>String</code> containing numbers.</p>
-						<pre><code>// Check if t0he string is a number
+						<!-- Num String ============================ -->
+						<section id="num_string">
+							<h3>Num String</h3>
+							<p>Extensions to validate and convert <code>String</code> containing numbers.</p>
+							<pre><code>// Check if t0he string is a number
 '2021'.isNum; // true
 '1f'.isNum; // false
 
@@ -421,13 +435,14 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 
 // Convert a string into an integer
 "123".toInt; // 123</code></pre>
-					</section>
+						</section>
 
-					<!-- Match Regex ============================ -->
-					<section id="match_regexp">
-						<h3>Match RegExp</h3>
-						<p>Check if the <code>String</code> matches the Regular expression (<code>RegExp</code>)</p>
-						<pre><code class="language-dart">"username_10".hasMatch("r'[abcdefghijklmnopqrstuvwxyz1234567890._]"); // true</code></pre>
+						<!-- Match Regex ============================ -->
+						<section id="match_regexp">
+							<h3>Match RegExp</h3>
+							<p>Check if the <code>String</code> matches the Regular expression (<code>RegExp</code>)</p>
+							<pre><code class="language-dart">"username_10".hasMatch("r'[abcdefghijklmnopqrstuvwxyz1234567890._]"); // true</code></pre>
+						</section>
 					</section>
 
 					<hr class="divider">
@@ -475,176 +490,321 @@ Container(
 					<section id="date_extensions">
 						<h2 class="text-primary">Date Extensions</h2>
 						<p class="lead mb-5">Extensions for adding additional functionality to the <code>DateTime</code> class.</p>
-					</section>
 
-					<!--Format ============================ -->
-					<section id="date_format">
-						<h3>Format</h3>
-						<p>Formats the <code>DateTime</code> according to the specified pattern in a readable form. The <code>format</code> method
-							allows you to create custom date and time formats by using placeholders that represent various components of the date and
-							time.</p>
-						<h6>Supported Placeholders:</h6>
-						<ul>
-							<li><code>yyyy</code>: Full year (e.g., 2024)</li>
-							<li><code>yy</code>: Last two digits of the year (e.g., 22)</li>
-							<li><code>MMMM</code>: Full month name (e.g., January)</li>
-							<li><code>MMM</code>: Abbreviated month name (e.g., Jan)</li>
-							<li><code>MM</code>: Two-digit month (01 - 12)</li>
-							<li><code>M</code>: Single-digit month (1 - 12)</li>
-							<li><code>dd</code>: Two-digit day of the month (01 - 31)</li>
-							<li><code>d</code>: Single-digit day of the month (1 - 31)</li>
-							<li><code>HH</code>: Two-digit hour in 24-hour format (00 - 23)</li>
-							<li><code>hh</code>: Two-digit hour in 12-hour format (01 - 12)</li>
-							<li><code>mm</code>: Two-digit minute (00 - 59)</li>
-							<li><code>ss</code>: Two-digit second (00 - 59)</li>
-							<li><code>a</code>: AM or PM</li>
-							<li><code>EEEE</code>: Full weekday name (e.g., Monday)</li>
-							<li><code>EEE</code>: Abbreviated weekday name (e.g., Mon)</li>
-						</ul>
-						<pre><code class="language-dart">DateTime now = DateTime.now();
+
+						<!--Format ============================ -->
+						<section id="date_format">
+							<h3>Format</h3>
+							<p>Formats the <code>DateTime</code> according to the specified pattern in a readable form. The <code>format</code> method
+								allows you to create custom date and time formats by using placeholders that represent various components of the date
+								and
+								time.</p>
+							<h6>Supported Placeholders:</h6>
+							<ul>
+								<li><code>yyyy</code>: Full year (e.g., 2024)</li>
+								<li><code>yy</code>: Last two digits of the year (e.g., 22)</li>
+								<li><code>MMMM</code>: Full month name (e.g., January)</li>
+								<li><code>MMM</code>: Abbreviated month name (e.g., Jan)</li>
+								<li><code>MM</code>: Two-digit month (01 - 12)</li>
+								<li><code>M</code>: Single-digit month (1 - 12)</li>
+								<li><code>dd</code>: Two-digit day of the month (01 - 31)</li>
+								<li><code>d</code>: Single-digit day of the month (1 - 31)</li>
+								<li><code>HH</code>: Two-digit hour in 24-hour format (00 - 23)</li>
+								<li><code>hh</code>: Two-digit hour in 12-hour format (01 - 12)</li>
+								<li><code>mm</code>: Two-digit minute (00 - 59)</li>
+								<li><code>ss</code>: Two-digit second (00 - 59)</li>
+								<li><code>a</code>: AM or PM</li>
+								<li><code>EEEE</code>: Full weekday name (e.g., Monday)</li>
+								<li><code>EEE</code>: Abbreviated weekday name (e.g., Mon)</li>
+							</ul>
+							<pre><code class="language-dart">DateTime now = DateTime.now();
 String formattedDate = now.format('yyyy-MM-dd – HH:mm');
 print(formattedDate);  // 2024-01-08 – 15:30</code></pre>
-					</section>
+						</section>
 
-					<!-- Difference ============================ -->
-					<section id="date_difference">
-						<h3>Difference</h3>
-						<p>Get the difference between two <code>DateTime</code> instances in years, months, and days.</p>
-						<p>If you want the result in abbreviated form (y, m, d), pass <code>true</code> to the <code>abbr</code> parameter, which is
-							<code>false</code> by default.
-						</p>
-						<p>The result is formatted as a string indicating the difference in years, months, and days. If a component is zero, it won't
-							be included in the result. <br>
-							<code>b</code> - The other <code>DateTime</code> instance to compare against. <br>
-							<code>abbr</code> - If <code>true</code>, the result will be abbreviated (y, m, d); otherwise, it will be in long form.
-						<pre><code>DateTime start = DateTime.now();
+						<!-- Difference ============================ -->
+						<section id="date_difference">
+							<h3>Difference</h3>
+							<p>Get the difference between two <code>DateTime</code> instances in years, months, and days.</p>
+							<p>If you want the result in abbreviated form (y, m, d), pass <code>true</code> to the <code>abbr</code> parameter, which
+								is
+								<code>false</code> by default.
+							</p>
+							<p>The result is formatted as a string indicating the difference in years, months, and days. If a component is zero, it
+								won't
+								be included in the result. <br>
+								<code>b</code> - The other <code>DateTime</code> instance to compare against. <br>
+								<code>abbr</code> - If <code>true</code>, the result will be abbreviated (y, m, d); otherwise, it will be in long
+								form.
+							<pre><code>DateTime start = DateTime.now();
 DateTime end = DateTime.now().add(Duration(days: 500));
 print(start.diffYearsMonthsDays(end));  // 1 year 4 months 15 days
 
 DateTime start2 = DateTime.now();
 DateTime end2 = DateTime.now().add(Duration(days: 370));
 print(start2.diffYearsMonthsDays(end2, abbr: true));  // 1 y 5 d</code></pre>
-						<p>
-							<strong>Note:</strong> This method provides an approximation and may not be entirely accurate, especially when dealing
-							with leap years and months of varying lengths.
-						</p>
-					</section>
+							<p>
+								<strong>Note:</strong> This method provides an approximation and may not be entirely accurate, especially when dealing
+								with leap years and months of varying lengths.
+							</p>
+						</section>
 
-					<!-- Date Only ============================ -->
-					<section id="date_only">
-						<h3>Date Only</h3>
-						<p>The <code>dateOnly</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance with the same
-							date as the original but with the time set to midnight (00:00:00). This is useful when you want to work specifically with
-							the date component and ignore the time.</p>
-						<pre><code>DateTime fullDateTime = DateTime(2024, 1, 8, 15, 30);
+						<!-- Date Only ============================ -->
+						<section id="date_only">
+							<h3>Date Only</h3>
+							<p>The <code>dateOnly</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance with the
+								same
+								date as the original but with the time set to midnight (00:00:00). This is useful when you want to work specifically
+								with
+								the date component and ignore the time.</p>
+							<pre><code>DateTime fullDateTime = DateTime(2024, 1, 8, 15, 30);
 DateTime dateOnly = fullDateTime.dateOnly;
 print(dateOnly);  // 2024-01-08 00:00:00.000</code></pre>
-					</section>
+						</section>
 
-					<!-- Is Same Day ============================ -->
-					<section id="is_same_day">
-						<h3>Is Same Day</h3>
-						<p>The <code>isSameDay</code> method compares the year, month, and day components of two <code>DateTime</code> instances. It
-							returns <code>true</code> if they are on the same day and <code>false</code> otherwise.</p>
-						<pre><code>DateTime date1 = DateTime(2024, 1, 8, 12, 0);
+						<!-- Is Same Day ============================ -->
+						<section id="is_same_day">
+							<h3>Is Same Day</h3>
+							<p>The <code>isSameDay</code> method compares the year, month, and day components of two <code>DateTime</code> instances.
+								It
+								returns <code>true</code> if they are on the same day and <code>false</code> otherwise.</p>
+							<pre><code>DateTime date1 = DateTime(2024, 1, 8, 12, 0);
 DateTime date2 = DateTime(2024, 1, 8, 18, 30);
 
 print(date1.isSameDay(date2));  // true</code></pre>
-					</section>
+						</section>
 
-					<!-- Is Today ============================ -->
-					<section id="is_today">
-						<h3>Is Today</h3>
-						<p>The <code>isToday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the current
-							date. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a convenient way
-							to determine if a date corresponds to the current day.</p>
-						<pre><code>DateTime today = DateTime.now();
+						<!-- Is Same Week ============================ -->
+						<section id="is_same_week">
+							<h3>Is Same Week</h3>
+							<p>The <code>isSameWeek</code> method compares the year, month, and day components of two <code>DateTime</code> instances,
+								ignoring the time component, and determines if they fall within the same week.</p>
+							<pre><code>DateTime date1 = DateTime(2024, 1, 8);
+DateTime date2 = DateTime(2024, 1, 12);
+
+bool result = date1.isSameWeek(date2);
+print(result);  // true</code></pre>
+						</section>
+
+						<!-- Is Today ============================ -->
+						<section id="is_today">
+							<h3>Is Today</h3>
+							<p>The <code>isToday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the
+								current
+								date. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a convenient
+								way
+								to determine if a date corresponds to the current day.</p>
+							<pre><code>DateTime today = DateTime.now();
 DateTime otherDate = DateTime(2024, 1, 8);
 
 print(today.isToday);        // true
 print(otherDate.isToday);    // false</code></pre>
-					</section>
+						</section>
 
-					<!-- Is Yesterday ============================ -->
-					<section id="is_yesterday">
-						<h3>Is Yesterday</h3>
-						<p>The <code>isYesterday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the
-							date of yesterday. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a
-							convenient way to determine if a date corresponds to yesterday.</p>
-						<pre><code>DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+						<!-- Is Yesterday ============================ -->
+						<section id="is_yesterday">
+							<h3>Is Yesterday</h3>
+							<p>The <code>isYesterday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the
+								date of yesterday. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is
+								a
+								convenient way to determine if a date corresponds to yesterday.</p>
+							<pre><code>DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
 DateTime otherDate = DateTime(2024, 1, 8);
 
 print(yesterday.isYesterday);        // true
 print(otherDate.isYesterday);        // false</code></pre>
-					</section>
+						</section>
 
-					<!-- Is Tomorrow ============================ -->
-					<section id="is_tomorrow">
-						<h3>Is Tomorrow</h3>
-						<p>The <code>isTomorrow</code> extension checks whether the date of the <code>DateTime</code> instance will be the same as the
-							date of tomorrow. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is a
-							convenient way to determine if a date corresponds to tomorrow.</p>
-						<pre><code>DateTime tomorrow = DateTime.now().add(Duration(days: 1));
+						<!-- Is Tomorrow ============================ -->
+						<section id="is_tomorrow">
+							<h3>Is Tomorrow</h3>
+							<p>The <code>isTomorrow</code> extension checks whether the date of the <code>DateTime</code> instance will be the same as
+								the
+								date of tomorrow. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is
+								a
+								convenient way to determine if a date corresponds to tomorrow.</p>
+							<pre><code>DateTime tomorrow = DateTime.now().add(Duration(days: 1));
 DateTime otherDate = DateTime(2024, 1, 8);
 
 print(tomorrow.isTomorrow);        // true
 print(otherDate.isTomorrow);       // false</code></pre>
-					</section>
+						</section>
 
-					<!-- Add Hours ============================ -->
-					<section id="add_hours">
-						<h3>Add Hours</h3>
-						<p>The <code>addHours</code> method creates a new <code>DateTime</code> instance by adding the specified number of hours to
-							the original date. The date components (year, month, day) remain unchanged.</p>
-						<pre><code>DateTime currentDate = DateTime(2024, 1, 8, 12, 0);
+						<!-- Is First Day of Month ============================ -->
+						<section id="isFirstDayOfMonth">
+							<h3>Is First Day of Month</h3>
+							<p>The <code>isFirstDayOfMonth</code> extension returns <code>true</code> if the date is the first day of the month, and
+								<code>false</code> otherwise. It compares the year, month, and day components of the <code>DateTime</code> instance
+								with the date of the first day of the same month.
+							</p>
+							<pre><code>DateTime firstDay = DateTime(2024, 1, 1);
+DateTime otherDay = DateTime(2024, 1, 8);
+
+print(firstDay.isFirstDayOfMonth);  // Output: true
+print(otherDay.isFirstDayOfMonth);  // Output: false</code></pre>
+						</section>
+
+						<!-- Is Last Day of Month ============================ -->
+						<section id="isLastDayOfMonth">
+							<h3>Is Last Day of Month</h3>
+							<p>The <code>isLastDayOfMonth</code> extension returns <code>true</code> if the date is the last day of the month, and
+								<code>false</code> otherwise. It compares the year, month, and day components of the <code>DateTime</code> instance
+								with the date of the last day of the same month.
+							</p>
+							<pre><code>DateTime lastDay = DateTime(2024, 1, 31);
+DateTime otherDay = DateTime(2024, 1, 18);
+
+print(lastDay.isLastDayOfMonth);  // Output: true
+print(otherDay.isLastDayOfMonth);  // Output: false</code></pre>
+						</section>
+
+						<!-- First Day of Month ============================ -->
+						<section id="firstDayOfMonth">
+							<h3>First Day of Month</h3>
+							<p>The <code>firstDayOfMonth</code> extension returns a new <code>DateTime</code> instance with the same year and month as
+								the original date but with the day set to 1 and the time set to midnight (00:00:00).
+							</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime firstDay = currentDate.firstDayOfMonth;
+print(firstDay);  // Output: 2024-01-01 00:00:00</code></pre>
+						</section>
+
+						<!-- Last Day of Month ============================ -->
+						<section id="lastDayOfMonth">
+							<h3>Last Day of Month</h3>
+							<p>The <code>lastDayOfMonth</code> extension returns a new <code>DateTime</code> instance with the same year and month as
+								the original date but with the day adjusted to the last day of that month.
+							</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime lastDayOfMonth = currentDate.lastDayOfMonth;
+print(lastDayOfMonth);  // Output: 2024-01-31 00:00:00</code></pre>
+						</section>
+
+						<!-- First Day of Week ============================ -->
+						<section id="firstDayOfWeek">
+							<h3>First Day of Week</h3>
+							<p>The <code>firstDayOfWeek</code> extension returns a new <code>DateTime</code> instance with the same year, month, and
+								hour as the original date but adjusted to the first day of the week. Daylight Saving Time is handled by setting the
+								hour to 12:00 Noon rather than the default of Midnight (00:00:00).
+								<br><Strong>Note: </Strong>The week in this context is considered to start from Monday.
+							</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime firstDayOfWeek = currentDate.firstDayOfWeek;
+print(firstDayOfWeek);  // Output: 2024-01-03 12:00:00.000 (Assuming Monday is the first day of the week)</code></pre>
+						</section>
+
+						<!-- Last Day of Week ============================ -->
+						<section id="lastDayOfWeek">
+							<h3>Last Day of Week</h3>
+							<p>The <code>lastDayOfWeek</code> extension returns a new <code>DateTime</code> instance with the same year, month, and
+								hour as the original date but adjusted to the last day of the week. Daylight Saving Time is handled by setting the
+								hour to 12:00 Noon rather than the default of Midnight (00:00:00).
+								<br><Strong>Note: </Strong>The week in this context is considered to end on Sunday.
+							</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime lastDayOfWeek = currentDate.lastDayOfWeek;
+print(lastDayOfWeek);  // Output: 2024-01-09 12:00:00.000 (Assuming Sunday is the last day of the week)</code></pre>
+						</section>
+
+						<!-- Previous Month ============================ -->
+						<section id="previousMonth">
+							<h3>Previous Month</h3>
+							<p>The <code>previousMonth</code> extension calculates and returns a new <code>DateTime</code> instance with the same day
+								and time as the original date but adjusted to the exact date of the previous month.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime previousMonthDate = currentDate.previousMonth;
+print(previousMonthDate);  // Output: 2023-12-08 00:00:00</code></pre>
+						</section>
+
+						<!-- Next Month ============================ -->
+						<section id="nextMonth">
+							<h3>Next Month</h3>
+							<p>The <code>nextMonth</code> extension calculates and returns a new <code>DateTime</code> instance with the same day and
+								time as the original date but adjusted to the exact date of the next month.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime nextMonthDate = currentDate.nextMonth;
+print(nextMonthDate);  // Output: 2023-2-08 00:00:00</code></pre>
+						</section>
+
+						<!-- Previous Week ============================ -->
+						<section id="previousWeek">
+							<h3>Previous Week</h3>
+							<p>The <code>previousWeek</code> extension calculates and returns a new <code>DateTime</code> instance by subtracting
+								seven days from the original date, representing the exact date of the last week.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 15);
+DateTime previousWeekDate = currentDate.previousWeek;
+print(previousWeekDate);  // Output: 2024-1-8 00:00:00</code></pre>
+						</section>
+
+						<!-- Next Week ============================ -->
+						<section id="nextWeek">
+							<h3>Next Week</h3>
+							<p>The <code>nextWeek</code> extension calculates and returns a new <code>DateTime</code> instance by adding seven days to
+								the original date, representing the exact date of the coming week.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+DateTime nextMonthWeek = currentDate.nextWeek;
+print(nextWeekDate);  // Output: 2024-1-15 00:00:00</code></pre>
+						</section>
+
+						<!-- Add Hours ============================ -->
+						<section id="add_hours">
+							<h3>Add Hours</h3>
+							<p>The <code>addHours</code> method creates a new <code>DateTime</code> instance by adding the specified number of hours
+								to
+								the original date. The date components (year, month, day) remain unchanged.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8, 12, 0);
 DateTime futureDate = currentDate.addHours(3);
 print(futureDate);  // 2024-01-08 15:00:00.000</code></pre>
-					</section>
+						</section>
 
-					<!-- Add Days ============================ -->
-					<section id="add_days">
-						<h3>Add Days</h3>
-						<p>The <code>addDays</code> method creates a new <code>DateTime</code> instance by adding the specified number of days to the
-							original date. The time components (hour, minute, second, millisecond, microsecond) remain unchanged.</p>
-						<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+						<!-- Add Days ============================ -->
+						<section id="add_days">
+							<h3>Add Days</h3>
+							<p>The <code>addDays</code> method creates a new <code>DateTime</code> instance by adding the specified number of days to
+								the
+								original date. The time components (hour, minute, second, millisecond, microsecond) remain unchanged.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime futureDate = currentDate.addDays(5);
 print(futureDate);  // 2024-01-13 00:00:00.000</code></pre>
-					</section>
+						</section>
 
-					<!-- Next Day ============================ -->
-					<section id="next_day">
-						<h3>Next Day</h3>
-						<p>The <code>nextDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance representing
-							the day immediately following the original date.</p>
-						<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+						<!-- Next Day ============================ -->
+						<section id="next_day">
+							<h3>Next Day</h3>
+							<p>The <code>nextDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance
+								representing
+								the day immediately following the original date.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime nextDay = currentDate.nextDay;
 print(nextDay);  // 2024-01-09 00:00:00.000</code></pre>
-					</section>
+						</section>
 
-					<!-- Previous Day ============================ -->
-					<section id="previous_day">
-						<h3>Previous Day</h3>
-						<p>The <code>previousDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance
-							representing the day immediately preceding the original date.</p>
-						<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
+						<!-- Previous Day ============================ -->
+						<section id="previous_day">
+							<h3>Previous Day</h3>
+							<p>The <code>previousDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance
+								representing the day immediately preceding the original date.</p>
+							<pre><code>DateTime currentDate = DateTime(2024, 1, 8);
 DateTime previousDay = currentDate.previousDay;
 print(previousDay);  // 2024-01-07 00:00:00.000</code></pre>
-					</section>
+						</section>
 
-					<!-- Days in Range ============================ -->
-					<section id="days_in_range">
-						<h3>Days in Range</h3>
-						<p>The <code>daysInRange</code> method generates a sequence of <code>DateTime</code> instances starting from the
-							<code>start</code> date and continuing until, but not including, the <code>end</code> date. It accounts for time zone
-							changes during the iteration.
-						</p>
-						<p><strong>Note:</strong> The range is inclusive for the <code>start</code> date and exclusive for the <code>end</code> date.
-						</p>
-						<pre><code>DateTime startDate = DateTime(2024, 1, 8);
+						<!-- Days in Range ============================ -->
+						<section id="days_in_range">
+							<h3>Days in Range</h3>
+							<p>The <code>daysInRange</code> method generates a sequence of <code>DateTime</code> instances starting from the
+								<code>start</code> date and continuing until, but not including, the <code>end</code> date. It accounts for time zone
+								changes during the iteration.
+							</p>
+							<p><strong>Note:</strong> The range is inclusive for the <code>start</code> date and exclusive for the <code>end</code>
+								date.
+							</p>
+							<pre><code>DateTime startDate = DateTime(2024, 1, 8);
 DateTime endDate = DateTime(2024, 1, 12);
 
 Iterable<DateTime> dateRange = DateTime.daysInRange(startDate, endDate);
 print(dateRange.toList());  // [2024-01-08 00:00:00.000, ..., 2024-01-11 00:00:00.000]</code></pre>
+						</section>
 					</section>
 
 					<hr class="divider">

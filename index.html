@@ -152,6 +152,7 @@
 							<li class="nav-item"><a class="nav-link" href="#circularRadius">Circular Radius</a></li>
 						</ul>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="#url_strategy">URL Strategy</a></li>
 					<li class="nav-item"><a class="nav-link" href="#acknowledgments">Acknowledgments</a></li>
 					<li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
 					<li class="nav-item"><a class="nav-link" href="#changelog">Changelog</a></li>
@@ -1006,6 +1007,32 @@ decoration: BoxDecoration(
 
 					<hr class="divider">
 
+					<!-- Url Strategy ============================ -->
+					<section id="url_strategy">
+						<h2 class="text-primary">URL Strategy</h2>
+						<p>If you want to remove the leading hash (<code>#</code>) from the URL of your Flutter web app, you can simply call
+							<code>setPathUrlStrategy</code> in the <code>main</code> function of your app:
+						</p>
+						<pre><code class="language-dart">import 'package:extensions_kit/extensions_kit.dart';
+
+void main() {
+	// Here we set the URL strategy for our web app.
+	// It is safe to call this function when running on mobile or desktop as well.
+	setPathUrlStrategy();
+	runApp(MyApp());
+}</code></pre>
+						<p>Now, your Flutter web app will not have a leading # in the URL anymore. <br>It is safe to call the function even when
+							running on any other platform than web (which is the point of this package).
+							That means that you can safely call setPathUrlStrategy when running on mobile or desktop - it will simply be a noop.</p>
+						<br>
+						<p><Strong>Note: </Strong>Make sure that you have
+							<code>&lt;base href="/"&gt;</code> included inside the head section of your web/index.html if you want to use the path URL
+							strategy. <br>This is included by default when you create a new Flutter project.
+						</p>
+					</section>
+
+					<hr class="divider">
+
 					<!-- Acknowledgments ============================ -->
 					<section id="acknowledgments">
 						<h2 class="text-primary">Acknowledgments</h2>
@@ -1016,6 +1043,8 @@ decoration: BoxDecoration(
 									href="https://github.com/letsar/gap">Romain Rastel</a></li>
 							<li><a target="_blank" href="https://pub.dev/packages/top_snackbar_flutter">top_snackbar_flutter</a> by <a target="_blank"
 									href="https://lanars.com/">Lanars</a></li>
+							<li><a target="_blank" href="https://pub.dev/packages/url_strategy">url_strategy</a> by <a target="_blank"
+									href="https://github.com/simpleclub">simpleclub</a></li>
 						</ul>
 					</section>
 

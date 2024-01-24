@@ -152,8 +152,10 @@
 							<li class="nav-item"><a class="nav-link" href="#circularRadius">Circular Radius</a></li>
 						</ul>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="#gap">Gap</a></li>
 					<li class="nav-item"><a class="nav-link" href="#url_strategy">URL Strategy</a></li>
 					<li class="nav-item"><a class="nav-link" href="#shimmer">Shimmer</a></li>
+					<li class="nav-item"><a class="nav-link" href="#avatarImage">Avatar Image</a></li>
 					<li class="nav-item"><a class="nav-link" href="#acknowledgments">Acknowledgments</a></li>
 					<li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
 					<li class="nav-item"><a class="nav-link" href="#changelog">Changelog</a></li>
@@ -1008,6 +1010,33 @@ decoration: BoxDecoration(
 
 					<hr class="divider">
 
+					<!-- Gap ============================ -->
+					<section id="gap">
+						<h2 class="text-primary">Gap</h2>
+						<p>When it comes to add empty space between widgets inside a <code>Column</code> or a <code>Row</code>, we have multiple
+							options:</p>
+						<ul>
+							<li>We can either add a <code>Padding</code> around these widgets but it's very verbose</li>
+							<li>Or we can add <code>SizedBox</code> widgets between them.</li>
+						</ul>
+						<p><code>Gap</code> is another option. It's like <code>SizedBox</code> but you don't have to know if it's inside a
+							<code>Row</code> or a <code>Column</code>. So that it's less verbose than using a <code>SizedBox</code>. <br>
+
+							You just have to add a <code>Gap</code> inside a <code>Column</code> or a <code>Row</code> with the specified extent. The
+							<code>Gap</code> widget also works inside <code>Scrollable</code> widgets such as <code>ListView</code>. In these cases,
+							it will occupy the space in the same direction as the <code>Scrollable</code>.
+						</p>
+						<pre><code class="language-dart">return Column(
+children: <Widget>[
+	Container(color: Colors.red, height: 20),
+	const Gap(20), // Adds an empty space of 20 pixels.
+	Container(color: Colors.red, height: 20),
+],
+);</code></pre>
+					</section>
+
+					<hr class="divider">
+
 					<!-- Url Strategy ============================ -->
 					<section id="url_strategy">
 						<h2 class="text-primary">URL Strategy</h2>
@@ -1045,6 +1074,103 @@ void main() {
 								src="https://user-images.githubusercontent.com/31765271/177955655-66a856a6-108a-429f-bbad-64b1c3f114aa.gif"
 								alt="image"></a>
 						<p>You can also change the color of the shimmer using <code>baseColor</code> & <code>highlightColor</code>.</p>
+					</section>
+
+					<hr class="divider">
+
+					<!-- Avatar Image ============================ -->
+					<section id="avatarImage">
+						<h2 class="text-primary">Avatar Image</h2>
+						<pre><code class="language-dart">AvatarImage(
+backgroundImage: NetworkImage(
+	'https://mdbootstrap.com/img/Photos/Avatars/img%20%281%29.jpg'),
+	shape: AvatarImageShape.standard,
+	size: ImageSize.LARGE,
+	child: Text('Lucky'),
+		backgroundColor: Colors.red,
+	),
+
+AvatarImage(
+	shape: AvatarImageShape.circle,
+	child: Text('JP'),
+	backgroundColor: Colors.red,
+	),</code></pre>
+						<a class="popup-img"
+							href="https://user-images.githubusercontent.com/31765271/177955655-66a856a6-108a-429f-bbad-64b1c3f114aa.gif">
+							<img class="img-fluid"
+								src="https://user-images.githubusercontent.com/31765271/205228265-a30afe80-1f12-4874-808f-177aafb25b4a.jpeg"
+								alt="image"></a>
+						<img class="img-fluid"
+							src="https://user-images.githubusercontent.com/31765271/205228285-e5a52b8e-0675-4796-858b-7257d1925a5b.jpeg"
+							alt="image"></a>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Properties</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><code>child</code></td>
+									<td>
+										<p>Type of [Widget], which can have text , icon etc</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>backgroundColor</code></td>
+									<td>
+										<p>Color to fill the background of avatar</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>foregroundColor</code></td>
+									<td>
+										<p>Color to change the textColor inside the avatar</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>radius</code></td>
+									<td>
+										<p>Size of the avatar</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>minRadius</code></td>
+									<td>
+										<p>Minimum size of the avatar</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>maxRadius</code></td>
+									<td>
+										<p>Maximum size of the avatar</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>size</code></td>
+									<td>
+										<p>Size of the avatar i.e. <code>ImageSize.large</code>, <code>ImageSize.medium</code>,
+											<code>ImageSize.small</code>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>shape</code></td>
+									<td>
+										<p>Shape of the avatar i.e. <code>AvatarImageShape.standard</code>, <code>AvatarImageShape.circle</code>,
+											<code>AvatarImageShape.square</code>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td><code>borderRadius</code></td>
+									<td>
+										<p>Extra radius to avatar shapes, not applicable to circular avatar</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 
 					<hr class="divider">

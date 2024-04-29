@@ -321,7 +321,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-11 {
   font-size: 2.75rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-11 {
     font-size: calc(1.4rem + 2.1774193548vw)  !important;
   }
@@ -330,7 +330,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-12 {
   font-size: 3rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-12 {
     font-size: calc(1.425rem + 2.5403225806vw)  !important;
   }
@@ -339,7 +339,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-13 {
   font-size: 3.25rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-13 {
     font-size: calc(1.45rem + 2.9032258065vw)  !important;
   }
@@ -348,7 +348,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-14 {
   font-size: 3.5rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-14 {
     font-size: calc(1.475rem + 3.2661290323vw)  !important;
   }
@@ -357,7 +357,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-15 {
   font-size: 3.75rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-15 {
     font-size: calc(1.5rem + 3.6290322581vw)  !important;
   }
@@ -366,7 +366,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-16 {
   font-size: 4rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-16 {
     font-size: calc(1.525rem + 3.9919354839vw)  !important;
   }
@@ -375,7 +375,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-17 {
   font-size: 4.5rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-17 {
     font-size: calc(1.575rem + 4.7177419355vw)  !important;
   }
@@ -384,7 +384,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-18 {
   font-size: 5rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-18 {
     font-size: calc(1.625rem + 5.4435483871vw)  !important;
   }
@@ -393,7 +393,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-19 {
   font-size: 5.25rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-19 {
     font-size: calc(1.65rem + 5.8064516129vw)  !important;
   }
@@ -402,7 +402,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-20 {
   font-size: 5.75rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-20 {
     font-size: calc(1.7rem + 6.5322580645vw)  !important;
   }
@@ -411,7 +411,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-21 {
   font-size: 6.5rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-21 {
     font-size: calc(1.775rem + 7.6209677419vw)  !important;
   }
@@ -420,7 +420,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-22 {
   font-size: 7rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-22 {
     font-size: calc(1.825rem + 8.3467741935vw)  !important;
   }
@@ -429,7 +429,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-23 {
   font-size: 7.75rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-23 {
     font-size: calc(1.9rem + 9.435483871vw)  !important;
   }
@@ -438,7 +438,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-24 {
   font-size: 8.25rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-24 {
     font-size: calc(1.95rem + 10.1612903226vw)  !important;
   }
@@ -447,7 +447,7 @@ dl, ol, ul, pre, blockquote, .table {
 .text-25 {
   font-size: 9rem !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 650px) {
   .text-25 {
     font-size: calc(2.025rem + 11.25vw)  !important;
   }
@@ -1477,7 +1477,7 @@ hr {
     color: #fff;
   }
 }
-@media (max-width: 991.98px) {
+@media (max-width: 650.98px) {
   .navbar-expand-lg .navbar-collapse {
     position: absolute;
     top: 99%;
@@ -2275,7 +2275,7 @@ hr {
     right: 0px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 650px) {
   .featured-box.featured-box-reverse-xl {
     text-align: right;
   }

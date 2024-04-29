@@ -23,7 +23,7 @@ $(window).on('load', function () {
 
 // Dropdown show on hover
 $('.primary-menu ul.navbar-nav li.dropdown, .login-signup ul.navbar-nav li.dropdown').on("mouseover", function() {
-	if ($(window).width() > 991) {
+	if ($(window).width() > 650) {
 		$(this).find('> .dropdown-menu').stop().slideDown('fast');
 		$(this).bind('mouseleave', function() {
 		$(this).find('> .dropdown-menu').stop().css('display', 'none'); 
@@ -44,7 +44,7 @@ $('.primary-menu ul.navbar-nav .dropdown-menu').each(function() {
 	});
 $(function () {
     $(".dropdown li").on('mouseenter mouseleave', function (e) {
-		if ($(window).width() > 991) {
+		if ($(window).width() > 650) {
             var elm = $('.dropdown-menu', this);
             var off = elm.offset();
             var l = off.left;
@@ -66,7 +66,7 @@ $('.primary-menu ul.navbar-nav').find('a.dropdown-toggle').append($('<i />').add
 
 // Mobile Collapse Nav
 $('.primary-menu .navbar-nav .dropdown-toggle[href="#"], .primary-menu .dropdown-toggle[href!="#"] .arrow').on('click', function(e) {
-	if ($(window).width() < 991) {
+	if ($(window).width() < 650) {
         e.preventDefault();
         var $parentli = $(this).closest('li');
         $parentli.siblings('li').find('.dropdown-menu:visible').slideUp();

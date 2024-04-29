@@ -60,14 +60,16 @@
 					<!-- Logo End -->
 
 					<!-- Navbar Toggler -->
-					<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
-						data-target="#header-nav"><span></span><span></span><span></span></button>
+					<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav">
+						<i class="fas fa-search text-white"></i>
+					</button>
 
 					<div id="header-nav" class="collapse navbar-collapse justify-content-end">
-						<ul class="navbar-nav">
-							<li><a target="_blank" href="https://pub.dev/packages/extensions_kit">Pub.dev</a>
+						<ul class="navbar-nav" style="display: flex; align-items: center;">
+							<li style="margin-right: 10px; display: flex; align-items: center;">
+								<input type="text" id="searchInput" placeholder="Search Extensions..." class="form-control"
+									style="border: .5px solid #fff; padding: 5px 10px; border-radius: 6px; color: #fff; background-color: transparent;">
 							</li>
-							<li><a target="_blank" href="https://thecreativezee.com/">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -87,7 +89,7 @@
 							<li class="nav-item"><a class="nav-link" href="#package_installation">Installation</a></li>
 						</ul>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#extensions">Ext Class</a>
+					<li class="nav-item"><a class="nav-link" href="#extensions">Ext</a>
 						<ul class="nav flex-column">
 							<li class="nav-item"><a class="nav-link" href="#pixel_values">Pixel values</a></li>
 							<li class="nav-item"><a class="nav-link" href="#ext_colors">Colors</a></li>
@@ -162,16 +164,15 @@
 				</ul>
 			</div>
 			<!-- Sidebar Navigation End -->
-
 			<!-- Docs Content ============================ -->
 			<div class="idocs-content">
 				<div class="container">
-
+					<br>
 					<!-- Getting Started ============================ -->
-					<section id="about">
+					<section id="about" class="section" data-keywords="about">
 						<h1 class="text-primary">Extensions Kit Docs <span class="lead">(Under Development)</span></h1>
 						<h2>About</h2>
-						<p class="lead">An essential and powerful library of dart extensions to remove the boilerplate and speed up the development
+						<p class=" lead">An essential and powerful library of dart extensions to remove the boilerplate and speed up the development
 							process.</p>
 						<hr>
 						<div class="row">
@@ -193,12 +194,12 @@
 							library/documentation is missing a feature, please raise a <a target="_blank"
 								href="https://github.com/zainulabidin379/extensions_kit/issues/new?template=feature_request.md">ticket</a>. Pull
 							requests are also welcomed.</p>
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Installation ============================ -->
-					<section id="package_installation">
+					<section id="package_installation" class="section" data-keywords="installation, how to install">
 						<h2 class="text-primary">Installation</h2>
 						<p class="lead">Follow the steps below to add <strong>extensions_kit</strong> to your project:</p>
 						<ol>
@@ -210,13 +211,12 @@
 							<li>Import</li>
 							<pre><code>import 'package:extensions_kit/extensions_kit.dart';</code></pre>
 						</ol>
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
-
 					<!-- Ext Methods ============================ -->
-					<section id="extensions">
-						<h2 class="text-primary">Extensions Class</h2>
+					<section id="extensions" class="section" data-keywords="ext class, extensions, ext mixin">
+						<h2 class="text-primary">Ext</h2>
 						<p>The <code>Ext</code> mixin extensions includes pixel values for common sizes (dp10 through dp50) and various color
 							constants in both
 							<code>hex</code>
@@ -228,7 +228,7 @@
 						</p>
 
 						<!-- Pixel Values ============================ -->
-						<section id="pixel_values">
+						<section id="pixel_values" class="subsection" data-keywords="pixel values, pixels, values, dp">
 							<h3>Pixel Values</h3>
 							<p>You can access constant pixel values from dp10 through dp50:</p>
 							<pre><code class="language-dart">Ext.dp10; // 10 Pixels
@@ -259,7 +259,7 @@ Ext.dp50; // 50 Pixels</code></pre>
 						</section>
 
 						<!-- Colors ============================ -->
-						<section id="ext_colors">
+						<section id="ext_colors" class="subsection" data-keywords="colors">
 							<h3>Colors</h3>
 							<p>There is a range of colors that you can access in <code>hex</code> or <code>Color</code> format.</p>
 							<pre><code  class="language-dart">Text(
@@ -272,7 +272,7 @@ Ext.dp50; // 50 Pixels</code></pre>
 						</section>
 
 						<!-- Hex to Color ============================ -->
-						<section id="hexToColor">
+						<section id="hexToColor" class="subsection" data-keywords="hex to color, hextocolor">
 							<h3>Hex to Color</h3>
 							<p>Convert a hexadecimal color code to a corresponding <code>Color</code> object. The input <code>String</code> can be
 								either
@@ -284,7 +284,7 @@ Color myColor = Ext.hexToColor(hexCode); // Color from hex</code></pre>
 						</section>
 
 						<!-- Get MaterialColor ============================ -->
-						<section id="get_materialColor">
+						<section id="get_materialColor" class="subsection" data-keywords="material color, materiacolor, get materia color">
 							<h3>Get MaterialColor</h3>
 							<p>Convert a <code>Color</code> to a corresponding <code>MaterialColor</code>.</p>
 							<pre><code>Color myColor = Colors.blue;
@@ -292,7 +292,7 @@ MaterialColor myMaterialColor = Ext.getMaterialColor(myColor); // MaterialColor<
 						</section>
 
 						<!-- Random Color ============================ -->
-						<section id="random_color">
+						<section id="random_color" class="subsection">
 							<h3>Random Color</h3>
 							<p>There are three methods available to generate a random <code>Color</code></p>
 							<pre><code>Color myRandomColor = Ext.randomColor; // Generates a random color with random RGB values
@@ -303,14 +303,14 @@ Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque 
 						</section>
 
 						<!-- Copy to Clipboard ============================ -->
-						<section id="copy_to_clipboard">
+						<section id="copy_to_clipboard" class="subsection">
 							<h3>Copy to Clipboard</h3>
 							<p>Copies the provided <code>String</code> to the device clipboard.</p>
 							<pre><code>Ext.copy("Hello, Clipboard!"); // "Hello, Clipboard!" Copied to clipboard!</code></pre>
 						</section>
 
 						<!-- show Snackbar ============================ -->
-						<section id="show_snackbar">
+						<section id="show_snackbar" class="subsection">
 							<h3>Show Snackbar</h3>
 							<p>A fully customizable method to show snackbar of three different types.</p>
 							<h5>Message Snackbar</h5>
@@ -331,7 +331,7 @@ Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque 
 						</section>
 
 						<!-- Distance b/w Coordinates ============================ -->
-						<section id="distance_between_coordinates">
+						<section id="distance_between_coordinates" class="subsection">
 							<h3>Distance b/w Coordinates</h3>
 							<p>Calculates the great-circle distance between two geographic coordinates (Latitude, Longitude) using the Haversine
 								formula.
@@ -345,7 +345,7 @@ Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque 
 						</section>
 
 						<!-- Platform ============================ -->
-						<section id="ext_platform">
+						<section id="ext_platform" class="subsection">
 							<h3>Platform</h3>
 							<p>To check platform related info there are a set of methods available that you can use.</p>
 							<pre><code class="language-dart">Ext.isReleaseMode; // Checks whether the application is running in release mode.
@@ -372,9 +372,10 @@ Ext.isFuchsia; // Checks whether the device is running on Fuchsia.
 
 Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 						</section>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- String Extensions ============================ -->
 					<section id="string_extensions">
@@ -459,9 +460,10 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 							<p>Check if the <code>String</code> matches the Regular expression (<code>RegExp</code>)</p>
 							<pre><code class="language-dart">"username_10".hasMatch("r'[abcdefghijklmnopqrstuvwxyz1234567890._]"); // true</code></pre>
 						</section>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Media Query Extensions ============================ -->
 					<section id="media_query">
@@ -483,9 +485,11 @@ Container(
   width: context.w(50), // 50% of screen width
   height: context.h(40.5), // 40.5% of screen height
 ),</code></pre>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
+
 
 					<!-- Theme Extensions ============================ -->
 					<section id="theme_extensions">
@@ -498,9 +502,10 @@ Container(
 Container(
   color: Ext.isLightMode ? Colors.black : Colors.white; // Light mode check
 )</code></pre>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Date Extensions ============================ -->
 					<section id="date_extensions">
@@ -853,9 +858,10 @@ DateTime endDate = DateTime(2024, 1, 12);
 Iterable<DateTime> dateRange = DateTime.daysInRange(startDate, endDate);
 print(dateRange.toList());  // [2024-01-08 00:00:00.000, ..., 2024-01-11 00:00:00.000]</code></pre>
 						</section>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Number Extensions ============================ -->
 					<section id="number_extensions">
@@ -1006,9 +1012,10 @@ decoration: BoxDecoration(
   borderRadius: 15.circular(), // Here
 ))</code></pre>
 						</section>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Gap ============================ -->
 					<section id="gap">
@@ -1033,9 +1040,10 @@ children: <Widget>[
 	Container(color: Colors.red, height: 20),
 ],
 );</code></pre>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Url Strategy ============================ -->
 					<section id="url_strategy">
@@ -1059,9 +1067,11 @@ void main() {
 							<code>&lt;base href="/"&gt;</code> included inside the head section of your web/index.html if you want to use the path URL
 							strategy. <br>This is included by default when you create a new Flutter project.
 						</p>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
+
 
 					<!-- Shimmer ============================ -->
 					<section id="shimmer">
@@ -1074,9 +1084,10 @@ void main() {
 								src="https://user-images.githubusercontent.com/31765271/177955655-66a856a6-108a-429f-bbad-64b1c3f114aa.gif"
 								alt="image"></a>
 						<p>You can also change the color of the shimmer using <code>baseColor</code> & <code>highlightColor</code>.</p>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Avatar Image ============================ -->
 					<section id="avatarImage">
@@ -1171,9 +1182,10 @@ AvatarImage(
 								</tr>
 							</tbody>
 						</table>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Acknowledgments ============================ -->
 					<section id="acknowledgments">
@@ -1190,9 +1202,10 @@ AvatarImage(
 							<li><a target="_blank" href="https://pub.dev/packages/shimmer">shimmer</a> by <a target="_blank"
 									href="https://github.com/hnvn">HungHD</a></li>
 						</ul>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Support ============================ -->
 					<section id="support">
@@ -1200,9 +1213,10 @@ AvatarImage(
 						<p>If this package helped you please leave a like and share it with your friends. <a class="btn btn-primary" target="_blank"
 								href="https://pub.dev/packages/extensions_kit"><i class="fas fa-external-link-alt mr-1"></i>
 								Share</a></p>
+
+						<hr class="divider">
 					</section>
 
-					<hr class="divider">
 
 					<!-- Changelog ============================ -->
 					<section id="changelog">
@@ -1260,6 +1274,42 @@ AvatarImage(
 	<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 	<!-- Custom Script -->
 	<script src="assets/js/theme.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var searchInput = document.getElementById('searchInput');
+
+			searchInput.addEventListener('keyup', debounce(function () {
+				var searchQuery = searchInput.value.toLowerCase();
+				var sections = document.getElementsByClassName('section');
+
+				Array.from(sections).forEach(function (section) {
+					var sectionKeywords = section.getAttribute('data-keywords').split(',').map(keyword => keyword.trim().toLowerCase());
+					var subsections = section.getElementsByClassName('subsection');
+					var sectionVisible = sectionKeywords.some(keyword => keyword.includes(searchQuery));
+
+					Array.from(subsections).forEach(function (subsection) {
+						var subsectionKeywords = subsection.getAttribute('data-keywords').split(',').map(keyword => keyword.trim().toLowerCase());
+						var isSubsectionVisible = subsectionKeywords.some(keyword => keyword.includes(searchQuery));
+						subsection.style.display = isSubsectionVisible ? 'block' : 'none';
+						sectionVisible = sectionVisible || isSubsectionVisible;
+					});
+
+					section.style.display = sectionVisible ? 'block' : 'none';
+				});
+			}));
+
+			function debounce(func, timeout = 300) {
+				let timer;
+				return (...args) => {
+					clearTimeout(timer);
+					timer = setTimeout(() => { func.apply(this, args); }, timeout);
+				};
+			}
+		});
+
+	</script>
+
+
 </body>
 
 </html>

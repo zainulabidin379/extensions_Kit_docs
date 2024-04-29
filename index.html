@@ -56,7 +56,7 @@
 					<a class="logo ml-md-3" href="index.html" title="Extensions Kit Docs"> <img src="assets/images/logo.png"
 							alt="Extensions Kit Docs" />
 					</a>
-					<span class="text-2 text-light mt-2">v1.0.2</span>
+					<span class="text-2 text-light mt-2">v1.0.6</span>
 					<!-- Logo End -->
 
 					<!-- Navbar Toggler -->
@@ -91,6 +91,7 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#extensions">Ext</a>
 						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link" href="#uniqueId">Unique ID</a></li>
 							<li class="nav-item"><a class="nav-link" href="#pixel_values">Pixel values</a></li>
 							<li class="nav-item"><a class="nav-link" href="#ext_colors">Colors</a></li>
 							<li class="nav-item"><a class="nav-link" href="#hexToColor">Hex to Color</a></li>
@@ -154,10 +155,17 @@
 							<li class="nav-item"><a class="nav-link" href="#circularRadius">Circular Radius</a></li>
 						</ul>
 					</li>
+					<li class="nav-item"><a class="nav-link" href="#container_extensions">Container</a>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link" href="#roundedCorners">Rounded Corders</a></li>
+							<li class="nav-item"><a class="nav-link" href="#shadow">Shadow</a></li>
+						</ul>
+					</li>
 					<li class="nav-item"><a class="nav-link" href="#gap">Gap</a></li>
 					<li class="nav-item"><a class="nav-link" href="#url_strategy">URL Strategy</a></li>
 					<li class="nav-item"><a class="nav-link" href="#shimmer">Shimmer</a></li>
 					<li class="nav-item"><a class="nav-link" href="#avatarImage">Avatar Image</a></li>
+					<li class="nav-item"><a class="nav-link" href="#alertDialog">Alert Dialog</a></li>
 					<li class="nav-item"><a class="nav-link" href="#acknowledgments">Acknowledgments</a></li>
 					<li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
 					<li class="nav-item"><a class="nav-link" href="#changelog">Changelog</a></li>
@@ -178,14 +186,15 @@
 						<div class="row">
 							<div class="col-sm-6 col-lg-4">
 								<ul class="list-unstyled">
-									<li><strong>Version:</strong> v1.0.2</li>
+									<li><strong>Version:</strong> v1.0.6</li>
 									<li><strong>Author:</strong> <a href="http://www.thecreativezee.com" target="_blank">thecreativezee.com</a></li>
 								</ul>
 							</div>
 							<div class="col-sm-6 col-lg-4">
 								<ul class="list-unstyled">
-									<li><strong class="font-weight-700">Created:</strong> December 29th, 2023</li>
-									<li><strong>Last Updated:</strong> January 9th, 2024</li>
+									<li><strong>Package:</strong> <a href="https://pub.dev/packages/extensions_kit"
+											target="_blank">pub.dev/extensions_kit</a></li>
+									<li><strong>Last Updated:</strong> April 29th, 2024</li>
 								</ul>
 							</div>
 						</div>
@@ -199,7 +208,7 @@
 
 
 					<!-- Installation ============================ -->
-					<section id="package_installation" class="section" data-keywords="installation, how to install">
+					<section id="package_installation" class="section" data-keywords="installation, how to import">
 						<h2 class="text-primary">Installation</h2>
 						<p class="lead">Follow the steps below to add <strong>extensions_kit</strong> to your project:</p>
 						<ol>
@@ -227,8 +236,16 @@
 							Available extensions are:
 						</p>
 
+						<!-- Unique ID ============================ -->
+						<section id="uniqueId" class="subsection" data-keywords="uid, unique id, user id, generate string, unique string,">
+							<h3>Unique ID</h3>
+							<p>Get a unique ID consisting of random alphanumeric characters and an optional timestamp. The <code>uniqueId</code> function generates a unique identifier by combining random alphanumeric characters with an optional current timestamp (milliseconds since epoch). The default length of the ID is 17 + (Timestamp length) characters, but it can be customized by providing a specific length.</p>
+							<pre><code class="language-dart">String id = Ext.uniqueId(); // Generates a unique ID with default length 17 + (Timestamp length)</code></pre>
+
+						</section>
+
 						<!-- Pixel Values ============================ -->
-						<section id="pixel_values" class="subsection" data-keywords="pixel values, pixels, values, dp">
+						<section id="pixel_values" class="subsection" data-keywords="pixel values, values, dp">
 							<h3>Pixel Values</h3>
 							<p>You can access constant pixel values from dp10 through dp50:</p>
 							<pre><code class="language-dart">Ext.dp10; // 10 Pixels
@@ -284,7 +301,7 @@ Color myColor = Ext.hexToColor(hexCode); // Color from hex</code></pre>
 						</section>
 
 						<!-- Get MaterialColor ============================ -->
-						<section id="get_materialColor" class="subsection" data-keywords="material color, materiacolor, get materia color">
+						<section id="get_materialColor" class="subsection" data-keywords="material color, get material color">
 							<h3>Get MaterialColor</h3>
 							<p>Convert a <code>Color</code> to a corresponding <code>MaterialColor</code>.</p>
 							<pre><code>Color myColor = Colors.blue;
@@ -292,7 +309,7 @@ MaterialColor myMaterialColor = Ext.getMaterialColor(myColor); // MaterialColor<
 						</section>
 
 						<!-- Random Color ============================ -->
-						<section id="random_color" class="subsection">
+						<section id="random_color" class="subsection" data-keywords="random color">
 							<h3>Random Color</h3>
 							<p>There are three methods available to generate a random <code>Color</code></p>
 							<pre><code>Color myRandomColor = Ext.randomColor; // Generates a random color with random RGB values
@@ -303,14 +320,14 @@ Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque 
 						</section>
 
 						<!-- Copy to Clipboard ============================ -->
-						<section id="copy_to_clipboard" class="subsection">
+						<section id="copy_to_clipboard" class="subsection" data-keywords="copy, copy to clipboard, clipboard">
 							<h3>Copy to Clipboard</h3>
 							<p>Copies the provided <code>String</code> to the device clipboard.</p>
 							<pre><code>Ext.copy("Hello, Clipboard!"); // "Hello, Clipboard!" Copied to clipboard!</code></pre>
 						</section>
 
 						<!-- show Snackbar ============================ -->
-						<section id="show_snackbar" class="subsection">
+						<section id="show_snackbar" class="subsection" data-keywords="snackbar, show snackbar, error, message">
 							<h3>Show Snackbar</h3>
 							<p>A fully customizable method to show snackbar of three different types.</p>
 							<h5>Message Snackbar</h5>
@@ -331,7 +348,7 @@ Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque 
 						</section>
 
 						<!-- Distance b/w Coordinates ============================ -->
-						<section id="distance_between_coordinates" class="subsection">
+						<section id="distance_between_coordinates" class="subsection" data-keywords="distance, distance between coordinates">
 							<h3>Distance b/w Coordinates</h3>
 							<p>Calculates the great-circle distance between two geographic coordinates (Latitude, Longitude) using the Haversine
 								formula.
@@ -345,7 +362,8 @@ Color myRandomOpaqueColor = Ext.randomOpaqueColor; // Generates a random opaque 
 						</section>
 
 						<!-- Platform ============================ -->
-						<section id="ext_platform" class="subsection">
+						<section id="ext_platform" class="subsection"
+							data-keywords="isdebugmode, is debug mode, isprofilemode, is profile mode, platform, isweb, is web, isandroid, is android, is ios, isios, ismobileos, is mobile os, islinux, is linux, ismacos, is macos, is Windows, iswindows, isfuchsia, is fuchsia, is desktop, isdesktop">
 							<h3>Platform</h3>
 							<p>To check platform related info there are a set of methods available that you can use.</p>
 							<pre><code class="language-dart">Ext.isReleaseMode; // Checks whether the application is running in release mode.
@@ -378,20 +396,20 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 
 
 					<!-- String Extensions ============================ -->
-					<section id="string_extensions">
+					<section id="string_extensions" class="section" data-keywords="string extensions">
 						<h2 class="text-primary">String Extensions</h2>
 						<p class="lead mb-5">Extensions for adding additional functionality to the <code>String</code>.</p>
 
 
 						<!-- IsEmail ============================ -->
-						<section id="isEmail">
+						<section id="isEmail" class="subsection" data-keywords="is email, isemail, email">
 							<h3>Check Email</h3>
 							<p>Validate an email</p>
 							<pre><code>"example@mail.com".isEmail; // true</code></pre>
 						</section>
 
 						<!-- Capitalize ============================ -->
-						<section id="capitalize">
+						<section id="capitalize" class="subsection" data-keywords="capitalize, uppercase">
 							<h3>Capitalize</h3>
 							<p>Capitalize each word in the <code>String</code></p>
 							<pre><code>"hello world".capitalize; // Hello World</code></pre>
@@ -400,21 +418,21 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 						</section>
 
 						<!-- Remove Spaces ============================ -->
-						<section id="remove_spaces">
+						<section id="remove_spaces" class="subsection" data-keywords="remove spaces, white space">
 							<h3>Remove Spaces</h3>
 							<p>Remove all the whitespace from the <code>String</code></p>
 							<pre><code>"This Is A Test String".removeAllWhitespace; // ThisIsATestString</code></pre>
 						</section>
 
 						<!-- Mock ============================ -->
-						<section id="mock">
+						<section id="mock" class="subsection" data-keywords="mock, mark, later">
 							<h3>Mock</h3>
 							<p>Mocks a <code>String</code> that needs to be translated or changed later.</p>
 							<pre><code>"Hello world".mock; // Hello world 🧨</code></pre>
 						</section>
 
 						<!-- Booleans ============================ -->
-						<section id="booleans">
+						<section id="booleans" class="subsection" data-keywords="is boolean, isboolean, is bool, isbool, to bool, tobool">
 							<h3>Booleans</h3>
 							<p>Check if a <code>String</code> is <code>bool</code> or convert a <code>String</code> to <code>bool</code></p>
 							<pre><code class="language-dart">// If caseSensitive is true, which is the default,
@@ -431,10 +449,11 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 						</section>
 
 						<!-- Num String ============================ -->
-						<section id="num_string">
+						<section id="num_string" class="subsection"
+							data-keywords="is number, isnum, to number, tonum, isdouble, is double, to double, todouble, is int, isint, toint, to int,">
 							<h3>Num String</h3>
 							<p>Extensions to validate and convert <code>String</code> containing numbers.</p>
-							<pre><code>// Check if t0he string is a number
+							<pre><code>// Check if the string is a number
 '2021'.isNum; // true
 '1f'.isNum; // false
 
@@ -455,7 +474,7 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 						</section>
 
 						<!-- Match Regex ============================ -->
-						<section id="match_regexp">
+						<section id="match_regexp" class="subsection" data-keywords="regexp, match regexp">
 							<h3>Match RegExp</h3>
 							<p>Check if the <code>String</code> matches the Regular expression (<code>RegExp</code>)</p>
 							<pre><code class="language-dart">"username_10".hasMatch("r'[abcdefghijklmnopqrstuvwxyz1234567890._]"); // true</code></pre>
@@ -466,7 +485,8 @@ Ext.isDesktop; // Checks whether the device is running on Desktop.</code></pre>
 
 
 					<!-- Media Query Extensions ============================ -->
-					<section id="media_query">
+					<section id="media_query" class="section"
+						data-keywords="media query extensions, mediaquery, screen width, screenwidth, screen height, screenheight,context, width, height">
 						<h2 class="text-primary">Media Query</h2>
 						<p>From the <code>MediaQuery</code> Access properties right in the <code>context</code> instance.</p>
 						<pre><code class="language-dart">// Before
@@ -492,7 +512,8 @@ Container(
 
 
 					<!-- Theme Extensions ============================ -->
-					<section id="theme_extensions">
+					<section id="theme_extensions" class="section"
+						data-keywords="theme extensions, isdarkmode, is dark mode, islightmode, is light mode">
 						<h2 class="text-primary">Theme Extensions</h2>
 						<p>Use <code>context</code> instance and check whether the app is currently in dark mode or light mode.</p>
 						<pre><code class="language-dart">Container(
@@ -508,13 +529,13 @@ Container(
 
 
 					<!-- Date Extensions ============================ -->
-					<section id="date_extensions">
+					<section id="date_extensions" class="section" data-keywords="date extensions">
 						<h2 class="text-primary">Date Extensions</h2>
 						<p class="lead mb-5">Extensions for adding additional functionality to the <code>DateTime</code> class.</p>
 
 
 						<!--Format ============================ -->
-						<section id="date_format">
+						<section id="date_format" class="subsection" data-keywords="format, format date, date format">
 							<h3>Format</h3>
 							<p>Formats the <code>DateTime</code> according to the specified pattern in a readable form. The <code>format</code> method
 								allows you to create custom date and time formats by using placeholders that represent various components of the date
@@ -544,7 +565,7 @@ print(formattedDate);  // 2024-01-08 – 15:30</code></pre>
 						</section>
 
 						<!-- Difference ============================ -->
-						<section id="date_difference">
+						<section id="date_difference" class="subsection" data-keywords="difference, date difference,">
 							<h3>Difference</h3>
 							<p>Get the difference between two <code>DateTime</code> instances in years, months, and days.</p>
 							<p>If you want the result in abbreviated form (y, m, d), pass <code>true</code> to the <code>abbr</code> parameter, which
@@ -603,7 +624,7 @@ print(secondsDifference);  // 331215</code></pre>
 						</section>
 
 						<!-- Date Only ============================ -->
-						<section id="date_only">
+						<section id="date_only" class="subsection" data-keywords="date only, dateonly, onlydate, only date">
 							<h3>Date Only</h3>
 							<p>The <code>dateOnly</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance with the
 								same
@@ -616,7 +637,7 @@ print(dateOnly);  // 2024-01-08 00:00:00.000</code></pre>
 						</section>
 
 						<!-- Is Same Day ============================ -->
-						<section id="is_same_day">
+						<section id="is_same_day" class="subsection" data-keywords="is same day, same day, issameday">
 							<h3>Is Same Day</h3>
 							<p>The <code>isSameDay</code> method compares the year, month, and day components of two <code>DateTime</code> instances.
 								It
@@ -628,7 +649,7 @@ print(date1.isSameDay(date2));  // true</code></pre>
 						</section>
 
 						<!-- Is Same Week ============================ -->
-						<section id="is_same_week">
+						<section id="is_same_week" class="subsection" data-keywords="is same week, same week, issameweek">
 							<h3>Is Same Week</h3>
 							<p>The <code>isSameWeek</code> method compares the year, month, and day components of two <code>DateTime</code> instances,
 								ignoring the time component, and determines if they fall within the same week.</p>
@@ -640,7 +661,7 @@ print(result);  // true</code></pre>
 						</section>
 
 						<!-- Is Today ============================ -->
-						<section id="is_today">
+						<section id="is_today" class="subsection" data-keywords="is today, istoday">
 							<h3>Is Today</h3>
 							<p>The <code>isToday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the
 								current
@@ -655,7 +676,7 @@ print(otherDate.isToday);    // false</code></pre>
 						</section>
 
 						<!-- Is Yesterday ============================ -->
-						<section id="is_yesterday">
+						<section id="is_yesterday" class="subsection" data-keywords="is yesterday, isyesterday">
 							<h3>Is Yesterday</h3>
 							<p>The <code>isYesterday</code> extension checks whether the date of the <code>DateTime</code> instance is the same as the
 								date of yesterday. It returns <code>true</code> if they are on the same day, and <code>false</code> otherwise. This is
@@ -669,7 +690,7 @@ print(otherDate.isYesterday);        // false</code></pre>
 						</section>
 
 						<!-- Is Tomorrow ============================ -->
-						<section id="is_tomorrow">
+						<section id="is_tomorrow" class="subsection" data-keywords="is tomorrow, istomorrow">
 							<h3>Is Tomorrow</h3>
 							<p>The <code>isTomorrow</code> extension checks whether the date of the <code>DateTime</code> instance will be the same as
 								the
@@ -684,7 +705,7 @@ print(otherDate.isTomorrow);       // false</code></pre>
 						</section>
 
 						<!-- Is First Day of Month ============================ -->
-						<section id="isFirstDayOfMonth">
+						<section id="isFirstDayOfMonth" class="subsection" data-keywords="is first day of month, isfirstdayofmonth">
 							<h3>Is First Day of Month</h3>
 							<p>The <code>isFirstDayOfMonth</code> extension returns <code>true</code> if the date is the first day of the month, and
 								<code>false</code> otherwise. It compares the year, month, and day components of the <code>DateTime</code> instance
@@ -698,7 +719,7 @@ print(otherDay.isFirstDayOfMonth);  // false</code></pre>
 						</section>
 
 						<!-- Is Last Day of Month ============================ -->
-						<section id="isLastDayOfMonth">
+						<section id="isLastDayOfMonth" class="subsection" data-keywords="is last day of month, last day of month, islastdayofmonth">
 							<h3>Is Last Day of Month</h3>
 							<p>The <code>isLastDayOfMonth</code> extension returns <code>true</code> if the date is the last day of the month, and
 								<code>false</code> otherwise. It compares the year, month, and day components of the <code>DateTime</code> instance
@@ -712,7 +733,7 @@ print(otherDay.isLastDayOfMonth);  // false</code></pre>
 						</section>
 
 						<!-- First Day of Month ============================ -->
-						<section id="firstDayOfMonth">
+						<section id="firstDayOfMonth" class="subsection" data-keywords="firstdayofmonth, first day of month">
 							<h3>First Day of Month</h3>
 							<p>The <code>firstDayOfMonth</code> extension returns a new <code>DateTime</code> instance with the same year and month as
 								the original date but with the day set to 1 and the time set to midnight (00:00:00).
@@ -723,7 +744,7 @@ print(firstDay);  // 2024-01-01 00:00:00</code></pre>
 						</section>
 
 						<!-- Last Day of Month ============================ -->
-						<section id="lastDayOfMonth">
+						<section id="lastDayOfMonth" class="subsection" data-keywords="last day of month, lastdayofmonth">
 							<h3>Last Day of Month</h3>
 							<p>The <code>lastDayOfMonth</code> extension returns a new <code>DateTime</code> instance with the same year and month as
 								the original date but with the day adjusted to the last day of that month.
@@ -734,7 +755,7 @@ print(lastDayOfMonth);  // 2024-01-31 00:00:00</code></pre>
 						</section>
 
 						<!-- First Day of Week ============================ -->
-						<section id="firstDayOfWeek">
+						<section id="firstDayOfWeek" class="subsection" data-keywords="first day of week, firstdayofweek">
 							<h3>First Day of Week</h3>
 							<p>The <code>firstDayOfWeek</code> extension returns a new <code>DateTime</code> instance with the same year, month, and
 								hour as the original date but adjusted to the first day of the week. Daylight Saving Time is handled by setting the
@@ -747,7 +768,7 @@ print(firstDayOfWeek);  // 2024-01-03 12:00:00.000 (Assuming Monday is the first
 						</section>
 
 						<!-- Last Day of Week ============================ -->
-						<section id="lastDayOfWeek">
+						<section id="lastDayOfWeek" class="subsection" data-keywords="last day of week, lastdayofweek">
 							<h3>Last Day of Week</h3>
 							<p>The <code>lastDayOfWeek</code> extension returns a new <code>DateTime</code> instance with the same year, month, and
 								hour as the original date but adjusted to the last day of the week. Daylight Saving Time is handled by setting the
@@ -760,7 +781,7 @@ print(lastDayOfWeek);  // 2024-01-09 12:00:00.000 (Assuming Sunday is the last d
 						</section>
 
 						<!-- Previous Month ============================ -->
-						<section id="previousMonth">
+						<section id="previousMonth" class="subsection" data-keywords="previdous month, previousmonth">
 							<h3>Previous Month</h3>
 							<p>The <code>previousMonth</code> extension calculates and returns a new <code>DateTime</code> instance with the same day
 								and time as the original date but adjusted to the exact date of the previous month.</p>
@@ -770,7 +791,7 @@ print(previousMonthDate);  // 2023-12-08 00:00:00</code></pre>
 						</section>
 
 						<!-- Next Month ============================ -->
-						<section id="nextMonth">
+						<section id="nextMonth" class="subsection" data-keywords="next month, nextmonth">
 							<h3>Next Month</h3>
 							<p>The <code>nextMonth</code> extension calculates and returns a new <code>DateTime</code> instance with the same day and
 								time as the original date but adjusted to the exact date of the next month.</p>
@@ -780,7 +801,7 @@ print(nextMonthDate);  // 2023-2-08 00:00:00</code></pre>
 						</section>
 
 						<!-- Previous Week ============================ -->
-						<section id="previousWeek">
+						<section id="previousWeek" class="subsection" data-keywords="previous week, previousweek">
 							<h3>Previous Week</h3>
 							<p>The <code>previousWeek</code> extension calculates and returns a new <code>DateTime</code> instance by subtracting
 								seven days from the original date, representing the exact date of the last week.</p>
@@ -790,7 +811,7 @@ print(previousWeekDate);  // 2024-1-8 00:00:00</code></pre>
 						</section>
 
 						<!-- Next Week ============================ -->
-						<section id="nextWeek">
+						<section id="nextWeek" class="subsection" data-keywords="next week, nextweek">
 							<h3>Next Week</h3>
 							<p>The <code>nextWeek</code> extension calculates and returns a new <code>DateTime</code> instance by adding seven days to
 								the original date, representing the exact date of the coming week.</p>
@@ -800,7 +821,7 @@ print(nextWeekDate);  // 2024-1-15 00:00:00</code></pre>
 						</section>
 
 						<!-- Add Hours ============================ -->
-						<section id="add_hours">
+						<section id="add_hours" class="subsection" data-keywords="add hours, addhours">
 							<h3>Add Hours</h3>
 							<p>The <code>addHours</code> method creates a new <code>DateTime</code> instance by adding the specified number of hours
 								to
@@ -811,7 +832,7 @@ print(futureDate);  // 2024-01-08 15:00:00.000</code></pre>
 						</section>
 
 						<!-- Add Days ============================ -->
-						<section id="add_days">
+						<section id="add_days" class="subsection" data-keywords="add days, adddays">
 							<h3>Add Days</h3>
 							<p>The <code>addDays</code> method creates a new <code>DateTime</code> instance by adding the specified number of days to
 								the
@@ -822,7 +843,7 @@ print(futureDate);  // 2024-01-13 00:00:00.000</code></pre>
 						</section>
 
 						<!-- Next Day ============================ -->
-						<section id="next_day">
+						<section id="next_day" class="subsection" data-keywords="next day, nextday">
 							<h3>Next Day</h3>
 							<p>The <code>nextDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance
 								representing
@@ -833,7 +854,7 @@ print(nextDay);  // 2024-01-09 00:00:00.000</code></pre>
 						</section>
 
 						<!-- Previous Day ============================ -->
-						<section id="previous_day">
+						<section id="previous_day" class="subsection" data-keywords="previousday, previous day">
 							<h3>Previous Day</h3>
 							<p>The <code>previousDay</code> extension provides a convenient way to obtain a new <code>DateTime</code> instance
 								representing the day immediately preceding the original date.</p>
@@ -843,7 +864,7 @@ print(previousDay);  // 2024-01-07 00:00:00.000</code></pre>
 						</section>
 
 						<!-- Days in Range ============================ -->
-						<section id="days_in_range">
+						<section id="days_in_range" class="subsection" data-keywords="days int range, daysinrange">
 							<h3>Days in Range</h3>
 							<p>The <code>daysInRange</code> method generates a sequence of <code>DateTime</code> instances starting from the
 								<code>start</code> date and continuing until, but not including, the <code>end</code> date. It accounts for time zone
@@ -864,12 +885,12 @@ print(dateRange.toList());  // [2024-01-08 00:00:00.000, ..., 2024-01-11 00:00:0
 
 
 					<!-- Number Extensions ============================ -->
-					<section id="number_extensions">
+					<section id="number_extensions" class="section" data-keywords="number extensions">
 						<h2 class="text-primary">Number Extensions</h2>
 						<p>Extensions for adding additional functionality to the <code>num</code></p>
 
 						<!-- Lorem Ipsum ============================ -->
-						<section id="loremIpsum">
+						<section id="loremIpsum" class="subsection" data-keywords="lorem ipsum, loremipsum">
 							<h3>Lorem Ipsum</h3>
 							<p>The <code>dateOnly</code> method generates Lorem Ipsum text with a word count equal to <code>this</code>. It utilizes a
 								predefined list of words to construct the text, repeating the words as needed to achieve the specified word count.</p>
@@ -878,7 +899,7 @@ print(loremIpsumText); // 'lorem ipsum dolor sit amet consectetur adipiscing eli
 						</section>
 
 						<!-- Ordinal ============================ -->
-						<section id="ordinal">
+						<section id="ordinal" class="subsection" data-keywords="ordinal,st, nd, rd, th">
 							<h3>Ordinal</h3>
 							<p>The <code>ordinal</code> extension converts an integer into its English ordinal representation. It is commonly used to
 								format numbers as ordinals, such as "1st", "22nd", "143rd", etc.</p>
@@ -889,7 +910,7 @@ print(0.ordinal);   // 0th</code></pre>
 						</section>
 
 						<!-- Is Between ============================ -->
-						<section id="isBetween">
+						<section id="isBetween" class="subsection" data-keywords="is between, isbetween">
 							<h3>Is Between</h3>
 							<p>The <code>between</code> method checks if the current value is between the given [min] (inclusive) and [max]
 								(exclusive). It returns `true` if the value is greater than or equal to [min] and less than [max].</p>
@@ -899,7 +920,7 @@ print(isBetween);  // true</code></pre>
 						</section>
 
 						<!-- Is Outside ============================ -->
-						<section id="isOutside">
+						<section id="isOutside" class="subsection" data-keywords="is outside, isoutside">
 							<h3>Is Outside</h3>
 							<p>The <code>outside</code> method checks if the current value is outside the given [min] (exclusive) and [max]
 								(inclusive). It returns `true` if the value is less than [min] and greater than [max].</p>
@@ -909,7 +930,7 @@ print(isOutside);  // true</code></pre>
 						</section>
 
 						<!-- HightBox ============================ -->
-						<section id="num_heightBox">
+						<section id="num_heightBox" class="subsection" data-keywords="height box, heigt widget, sizedbox, height">
 							<h3>HightBox</h3>
 							<p>The <code>hightBox</code> extension returns a <code>SizedBox</code> widget with the height set to the value of the
 								current integer. It is commonly used in Flutter UI layouts to add empty space with a specific height.</p>
@@ -918,7 +939,7 @@ SizedBox heightBox = heightValue.heightBox;</code></pre>
 						</section>
 
 						<!-- WidthBox ============================ -->
-						<section id="num_widthBox">
+						<section id="num_widthBox" class="subsection" data-keywords="width box, width widget, widthbox, width">
 							<h3>WidthBox</h3>
 							<p>The <code>widthBox</code> extension returns a <code>SizedBox</code> widget with the Width set to the value of the
 								current integer. It is commonly used in Flutter UI layouts to add empty space with a specific Width.</p>
@@ -927,90 +948,121 @@ SizedBox widthBox = widthValue.widthBox;</code></pre>
 						</section>
 
 						<!-- Padding ============================ -->
-						<section id="num_padding">
+						<section id="num_padding" class="subsection" data-keywords="padding, margin">
 							<h3>Padding</h3>
 							<!-- PadAll ============================ -->
 							<h5>PadAll</h5>
 							<p>The <code>padAll</code> method returns <code>EdgeInsets</code> with all offsets set to the value of the current
 								integer. It is useful for creating consistent padding on all sides.</p>
-							<pre><code>Padding(
-padding: 15.padAll(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padAll(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadVert ============================ -->
 							<h5>PadVert</h5>
 							<p>The <code>padVert</code> method returns <code>EdgeInsets</code> with symmetric horizontal offsets set to the value of
 								the current integer. It is useful for creating padding on the top and bottom sides.</p>
-							<pre><code>Padding(
-padding: 15.padVert(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padVert(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadHrz ============================ -->
 							<h5>PadHrz</h5>
 							<p>The <code>padHrz</code> method returns <code>EdgeInsets</code> with symmetric horizontal offsets set to the value of
 								the current integer. It is useful for creating padding on the left and right sides.</p>
-							<pre><code>Padding(
-padding: 15.padHrz(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padHrz(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadTop ============================ -->
 							<h5>PadTop</h5>
 							<p>The <code>padTop</code> method returns <code>EdgeInsets</code> with only the top offset set to the value of the current
 								integer. It is useful for creating padding on the top side.</p>
-							<pre><code>Padding(
-padding: 15.padTop(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padTop(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadBottom ============================ -->
 							<h5>PadBottom</h5>
 							<p>The <code>padBottom</code> method returns <code>EdgeInsets</code> with only the bottom offset set to the value of the
 								current integer. It is useful for creating padding on the bottom side.</p>
-							<pre><code>Padding(
-padding: 15.padBottom(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padBottom(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadLeft ============================ -->
 							<h5>PadLeft</h5>
 							<p>The <code>padLeft</code> method returns <code>EdgeInsets</code> with only the left offset set to the value of the
 								current integer. It is useful for creating padding on the left side.</p>
-							<pre><code>Padding(
-padding: 15.padLeft(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padLeft(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadRight ============================ -->
 							<h5>PadRight</h5>
 							<p>The <code>padRight</code> method returns <code>EdgeInsets</code> with only the right offset set to the value of the
 								current integer. It is useful for creating padding on the right side.</p>
-							<pre><code>Padding(
-padding: 15.padRight(), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding: 15.padRight(), // Here
+  widget: Container(),
 )</code></pre>
 
 							<!-- PadOnly ============================ -->
 							<h5>PadOnly</h5>
 							<p>The <code>padOnly</code> method returns <code>EdgeInsets</code> with specified offsets based on the provided
 								parameters. It is useful for creating custom padding with different values for each side.</p>
-							<pre><code>Padding(
-padding:padOnly(l: 5, r: 5, t: 10, b: 15), // Here
-widget: Container(),
+							<pre><code class="language-dart">Padding(
+  padding:padOnly(l: 5, r: 5, t: 10, b: 15), // Here
+  widget: Container(),
 )</code></pre>
 						</section>
 
 						<!-- Circular Radius ============================ -->
-						<section id="circularRadius">
+						<section id="circularRadius" class="subsection" data-keywords="radius, circular radius">
 							<h3>Circular Radius</h3>
 							<p>The <code>circular</code> method returns a <code>BorderRadiusGeometry</code> with a circular radius set to the value of
 								the current integer. It is useful for creating rounded corners with a consistent circular radius.</p>
-							<pre><code>Container(
-decoration: BoxDecoration(
-  borderRadius: 15.circular(), // Here
-))</code></pre>
+							<pre><code class="language-dart">Container(
+  decoration: BoxDecoration(
+    borderRadius: 15.circular(), // Here
+  )
+)</code></pre>
+						</section>
+
+						<hr class="divider">
+					</section>
+
+					<!-- Container Extensions ============================ -->
+					<section id="container_extensions" class="section" data-keywords="container extensions">
+						<h2 class="text-primary">Container Extensions</h2>
+						<p>Extensions for adding additional functionality to the <code>Container</code></p>
+
+						<!-- Rounded Corners ============================ -->
+						<section id="roundedCorners" class="subsection" data-keywords="rounded corners, container radius">
+							<h3>Rounded Corners</h3>
+							<p>Add round corners to a <code>Container</code>. If the <code>Container</code> already has a <code>color</code> use
+								<code>backgroundColor</code> instead and remove the <code>Color</code> from the Container it self
+							</p>
+							<pre><code class="language-dart">Container(
+  height: 100,
+  width: 100,
+).withRoundCorners(backgroundColor: Colors.green, radius: 25)</code></pre>
+						</section>
+
+						<!-- Shadow ============================ -->
+						<section id="shadow" class="subsection" data-keywords="shadow, container shadow">
+							<h3>Shadow</h3>
+							<p>Add shadow to a <code>Container</code></p>
+							<pre><code class="language-dart">Container(
+  height: 100,
+  width: 100,
+).withShadow()</code></pre>
 						</section>
 
 						<hr class="divider">
@@ -1018,7 +1070,7 @@ decoration: BoxDecoration(
 
 
 					<!-- Gap ============================ -->
-					<section id="gap">
+					<section id="gap" class="section" data-keywords="gap, empty space, free space vertical space, horizontal space">
 						<h2 class="text-primary">Gap</h2>
 						<p>When it comes to add empty space between widgets inside a <code>Column</code> or a <code>Row</code>, we have multiple
 							options:</p>
@@ -1046,7 +1098,7 @@ children: <Widget>[
 
 
 					<!-- Url Strategy ============================ -->
-					<section id="url_strategy">
+					<section id="url_strategy" class="section" data-keywords="url strategy, remove #,">
 						<h2 class="text-primary">URL Strategy</h2>
 						<p>If you want to remove the leading hash (<code>#</code>) from the URL of your Flutter web app, you can simply call
 							<code>setPathUrlStrategy</code> in the <code>main</code> function of your app:
@@ -1074,7 +1126,7 @@ void main() {
 
 
 					<!-- Shimmer ============================ -->
-					<section id="shimmer">
+					<section id="shimmer" class="section" data-keywords="shimmer, shimmer effect, loading">
 						<h2 class="text-primary">Shimmer</h2>
 						<p>An easy way to add shimmer effect in your Flutter project</p>
 						<pre><code class="language-dart">Container(height: 50,width: 50,).applyShimmer();</code></pre>
@@ -1088,9 +1140,30 @@ void main() {
 						<hr class="divider">
 					</section>
 
+					<!-- Alert Dialog ============================ -->
+					<section id="alertDialog" class="section" data-keywords="alert dialog, show alert dialog">
+						<h2 class="text-primary">Alert Dialog</h2>
+						<p>Displays an alert dialog based on the platform (iOS or Android).</p>
+						<pre><code class="language-dart">context.showAlertDialog(
+  title: "Alert",
+  message: "This is an alert message.",
+  positiveButtonsTitle: ["OK"],
+  onDone: (index) {
+  print("Button pressed at index $index");
+  },
+);</code></pre>
+						<a class="popup-img"
+							href="https://raw.githubusercontent.com/zainulabidin379/extensions_Kit_docs/main/assets/images/dialog.png">
+							<img class="img-fluid"
+								src="https://raw.githubusercontent.com/zainulabidin379/extensions_Kit_docs/main/assets/images/dialog.png"
+								alt="image"></a>
+
+						<hr class="divider">
+					</section>
+
 
 					<!-- Avatar Image ============================ -->
-					<section id="avatarImage">
+					<section id="avatarImage" class="section" data-keywords="avatar, display picture, circular avatar">
 						<h2 class="text-primary">Avatar Image</h2>
 						<pre><code class="language-dart">AvatarImage(
 backgroundImage: NetworkImage(
@@ -1188,7 +1261,7 @@ AvatarImage(
 
 
 					<!-- Acknowledgments ============================ -->
-					<section id="acknowledgments">
+					<section id="acknowledgments" class="section" data-keywords="acknowledgments">
 						<h2 class="text-primary">Acknowledgments</h2>
 						<ul>
 							<li><a target="_blank" href="https://pub.dev/packages/awesome_extensions">awesome_extensions</a> by <a target="_blank"
@@ -1208,7 +1281,7 @@ AvatarImage(
 
 
 					<!-- Support ============================ -->
-					<section id="support">
+					<section id="support" class="section" data-keywords="support">
 						<h2 class="text-primary">Support</h2>
 						<p>If this package helped you please leave a like and share it with your friends. <a class="btn btn-primary" target="_blank"
 								href="https://pub.dev/packages/extensions_kit"><i class="fas fa-external-link-alt mr-1"></i>
@@ -1219,7 +1292,7 @@ AvatarImage(
 
 
 					<!-- Changelog ============================ -->
-					<section id="changelog">
+					<section id="changelog" class="section" data-keywords="changelog">
 						<h2 class="text-primary">Changelog</h2>
 						<p class="text-4">See what's new added, changed, fixed, improved or updated in the latest versions. <a class="ml-1"
 								target="_blank" href="https://pub.dev/packages/extensions_kit/changelog"><i class="fas fa-external-link-alt"></i>
